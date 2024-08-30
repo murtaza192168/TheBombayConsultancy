@@ -1,13 +1,11 @@
 
-import './App.css'
+import styles from './App.module.css';
 
 function App() {
  
 
   return (
-    <>
-    Hello Bombay!
-    </>
+    <div className={styles.App}>Hello from Bombay Consultancy!</div>
   )
 }
 

@@ -1,6 +1,7 @@
+/* Styling affected universally for each and every element on website */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: "Outfit", Arial, Helvetica, sans-serif;
-}
+} 
