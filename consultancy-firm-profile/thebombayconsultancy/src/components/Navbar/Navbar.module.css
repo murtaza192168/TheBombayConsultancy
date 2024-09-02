@@ -1,0 +1,31 @@
+@import  "../../vars.css";
+
+.navbar{
+    position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 35px; /*fix req*/
+    z-index: 2; /*fix req*/
+    margin: 0 10%;
+}
+
+.title{
+    font-size: 30px; /*fix req*/
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.menu{
+    display: flex;
+}
+.menuItems{
+    display: flex;
+    gap: 30px; /*fix req*/
+    list-style: none;
+}
+.menuItems a{
+    font-size: 16px; /*fix req*/
+    color: var(--color-primary);
+    text-decoration: none;
+}

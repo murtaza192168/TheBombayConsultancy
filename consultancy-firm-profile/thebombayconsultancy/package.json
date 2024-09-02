@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/cedarville-cursive": "^5.0.13",
     "@fontsource/outfit": "^5.0.14",
     "@fontsource/roboto": "^5.0.14",
     "axios": "^1.7.5",
