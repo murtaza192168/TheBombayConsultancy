@@ -1,6 +1,7 @@
 @import  "../../vars.css";
 
 .navbar{
+    background-color: #f5f5f5f6;
     position:relative;
     display: flex;
     align-items: center;
@@ -8,9 +9,11 @@
     padding-top: 35px; /*fix req*/
     z-index: 2; /*fix req*/
     margin: 0 10%;
+    
 }
 
 .title{
+    
     font-size: 30px; /*fix req*/
     font-weight: 600;
     text-decoration: none;
@@ -21,11 +24,109 @@
 }
 .menuItems{
     display: flex;
-    gap: 30px; /*fix req*/
+    gap: 47px; /*fix req*/
     list-style: none;
+    /*new style*/
+    justify-content: space-around;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out; /* Added transition */
+    
+   
 }
+.menuItems li {
+    padding: 14px 20px;
+}
+
 .menuItems a{
     font-size: 16px; /*fix req*/
     color: var(--color-primary);
     text-decoration: none;
+    position: relative; /* Required for the underline effect */
+    transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+.menuItems a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Position the underline slightly below the text */
+    width: 0%;
+    height: 2px;
+    background-color: var(--color-primary); /* Underline color */
+    transition: width 0.3s ease-in-out; /* Smooth transition for the underline effect */
+}
+
+.menuItems a:hover::after {
+    width: 100%; /* Expand the underline to the full width on hover */
+}
+
+.menuItems a:hover {
+    color: #000; /* Optional: change text color on hover */
+}
+
+.menuItems li a {
+    
+    text-decoration: none;
+    display: block;
+}
+
+
+@media  screen and (max-width: 900px) {
+    .navbar{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .menu{
+        flex-direction: column;
+        position: absolute;
+        right: 0;
+        margin-right: 10%;
+        align-items: flex-end;
+        gap: 11px;
+        z-index: 3;
+    }
+    .menuBtn{
+        display: block; /*Should be visible/displayed*/
+        cursor: pointer;
+    }
+    .menuItems{
+        display: none; /*items should not be displayed*/
+        flex-direction: column;
+        /*new style*/
+        width: 100%;
+        align-items: center;
+        gap: 13px;
+        background-color: #FFC20E;
+        padding: 24px 33px;
+        
+       
+        
+       
+        /* border-radius: 10px; */
+    }
+    .menuItems li {
+        text-align: center;
+        transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Smooth transition for hover effect */
+    }
+    .menuOpen{
+        display: flex;
+        z-index: 1; /* need a fix*/
+        transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Smooth transition for hover effect */
+       
+    }
+
+    
+
+    .menuItems a {
+        font-size: 16px; /* fix req */
+        color: var(--color-primary);
+        text-decoration: none;
+        display: block;
+       
+     }
+
+}
+@media screen and (min-width: 900px) {
+    .menuBtn{
+        display: none;
+    }
 }
