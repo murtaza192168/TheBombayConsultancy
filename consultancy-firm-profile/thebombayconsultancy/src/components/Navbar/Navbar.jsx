@@ -1,12 +1,15 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import styles from "./Navbar.module.css";
 import { getImageUrl } from '../../utils';
 
 export const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false)
+    const[showNavbar, setShowNavbar] = useState(true)
+    const[lastScrollY, setLastScrollY] = useState(0)
   return (
+   <section>
     <nav className={styles.navbar}>
-        <a className={styles.title} href="/"><img src={getImageUrl("nav/tbh_navbarimage.png")} alt="" /></a>
+        <a className={styles.title} href="/"><img  src={getImageUrl("nav/tbh_navbarimage.png")} alt="" /></a>
         <div className={styles.menu}>
             <img className={styles.menuBtn} 
             src = { 
@@ -46,6 +49,7 @@ export const Navbar = () => {
             </ul>
         </div>
     </nav>
+   </section> 
   )
 }
 

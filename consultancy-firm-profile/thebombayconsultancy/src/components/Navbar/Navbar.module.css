@@ -1,43 +1,47 @@
-@import  "../../vars.css";
+@import "../../vars.css";
 
-.navbar{
+.navbar {
     background-color: #f5f5f5f6;
-    position:relative;
+    position: fixed; /* Fixed position */
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 35px; /*fix req*/
-    z-index: 2; /*fix req*/
-    margin: 0 10%;
-    
+    padding: 20px 10%; /* Adjusted padding */
+    z-index: 1000; /* Ensure it's above other content */
+    border-bottom: 2px solid #ddd; /* Distinguishable line between navbar and content */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition */
 }
 
-.title{
-    
-    font-size: 30px; /*fix req*/
+.title {
+
+    font-size: 30px; /* Fix req */
     font-weight: 600;
     text-decoration: none;
+    color: var(--color-primary); /* Optional: change text color */
 }
 
-.menu{
+.menu {
     display: flex;
+    align-items: center;
 }
-.menuItems{
+
+.menuItems {
     display: flex;
-    gap: 47px; /*fix req*/
+    gap: 47px; /* Fix req */
     list-style: none;
-    /*new style*/
     justify-content: space-around;
     transition: max-height 0.3s ease-out, opacity 0.3s ease-out; /* Added transition */
-    
-   
 }
+
 .menuItems li {
     padding: 14px 20px;
 }
 
-.menuItems a{
-    font-size: 16px; /*fix req*/
+.menuItems a {
+    font-size: 16px; /* Fix req */
     color: var(--color-primary);
     text-decoration: none;
     position: relative; /* Required for the underline effect */
@@ -64,69 +68,81 @@
 }
 
 .menuItems li a {
-    
     text-decoration: none;
     display: block;
 }
 
-
-@media  screen and (max-width: 900px) {
-    .navbar{
+@media screen and (max-width: 900px) {
+    
+    .navbar {
         flex-direction: column;
-        align-items: flex-start;
+        padding: 20px 5%; /* Adjusted padding for mobile view */
     }
-    .menu{
+
+    .menu {
         flex-direction: column;
         position: absolute;
+        top: 80px; /* Space from the top to avoid overlapping with the navbar */
         right: 0;
-        margin-right: 10%;
-        align-items: flex-end;
-        gap: 11px;
-        z-index: 3;
+        width: 100%; /* Full width */
+        background-color: var(--color-secondary);
+        border-top: 2px solid #ddd; /* Border to separate from the navbar */
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     }
-    .menuBtn{
-        display: block; /*Should be visible/displayed*/
+
+    .menuBtn {
+        display: block; /* Should be visible/displayed */
         cursor: pointer;
+        font-size: 24px; /* Larger font size for the button */
+        color: var(--color-primary); /* Button color */
+        background: none;
+        border: none;
+        padding: 10px;
+        transition: color 0.3s ease; /* Smooth transition */
     }
-    .menuItems{
-        display: none; /*items should not be displayed*/
+
+    .menuBtn:hover {
+        color: #000; /* Change color on hover */
+    }
+
+    .menuItems {
+        display: none; /* Items should not be displayed initially */
         flex-direction: column;
-        /*new style*/
-        width: 100%;
         align-items: center;
         gap: 13px;
-        background-color: #FFC20E;
-        padding: 24px 33px;
-        
-       
-        
-       
-        /* border-radius: 10px; */
-    }
-    .menuItems li {
-        text-align: center;
-        transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Smooth transition for hover effect */
-    }
-    .menuOpen{
-        display: flex;
-        z-index: 1; /* need a fix*/
-        transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Smooth transition for hover effect */
-       
+        padding: 24px 0; /* Adjust padding */
     }
 
-    
+    .menuOpen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 1; /* Ensure it appears above other content */
+    }
 
     .menuItems a {
-        font-size: 16px; /* fix req */
+        font-size: 18px; /* Slightly larger font size for better readability */
         color: var(--color-primary);
         text-decoration: none;
         display: block;
-       
-     }
+        width: 100%; /* Full width of the menu item */
+        text-align: center; /* Center text */
+        padding: 15px; /* Add padding for better touch targets */
+    }
 
+    .menuItems li {
+        width: 100%; /* Full width for each menu item */
+        text-align: center;
+        transition: background-color 0.3s ease; /* Smooth transition for background color */
+    }
+
+    .menuItems li:hover {
+        background-color: #f5f5f5; /* Change background color on hover */
+    }
 }
+
 @media screen and (min-width: 900px) {
-    .menuBtn{
-        display: none;
+    .menuBtn {
+        display: none; /* Hide the button on larger screens */
     }
 }
