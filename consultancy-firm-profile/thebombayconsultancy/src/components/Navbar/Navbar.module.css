@@ -76,7 +76,8 @@
     
     .navbar {
         flex-direction: column;
-        padding: 20px 5%; /* Adjusted padding for mobile view */
+       
+        padding: 10px 5%; /* Adjusted padding for mobile view */
     }
 
     .menu {
@@ -86,7 +87,7 @@
         right: 0;
         width: 100%; /* Full width */
         background-color: var(--color-secondary);
-        border-top: 2px solid #ddd; /* Border to separate from the navbar */
+         /* Border to separate from the navbar */
         transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     }
 

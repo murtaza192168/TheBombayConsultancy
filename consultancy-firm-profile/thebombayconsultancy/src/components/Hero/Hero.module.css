@@ -45,7 +45,8 @@
     color: var(--color-dark);
     background-color: var(--color-secondary); /* Button color */
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 1px;
+    border: var(--color-primary);
     transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
     max-width: max-content;
     cursor: pointer;
