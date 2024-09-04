@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import styles from './Service.module.css';
-import {getImageUrl} from "../../utils";
+
+import {ServiceCard} from "./ServiceCard";
+
+
  const Service = () => {
 
     const [services, setServices] = useState([]);
@@ -31,24 +34,30 @@ import {getImageUrl} from "../../utils";
 
   return (
     <section>
-        <h2>Services We Offer</h2>
-        <div>
+            <h2>Services We Offer</h2>
+            <div>
+                <ul>
+                    {/* Map through the services array and render each service */}
+                    {services.map((service, id) => {
+                      return  (
+                        <ServiceCard key={id} service={service}/>
+                      )
+                        //  <div key={id}>
+                        // <li >
+                        //     {/* Display the name and description of each service */}
+                        //     <img src={getImageUrl(service.imageSrc)} alt={`Image of ${service.title}`} />
+                        //     <h3>{service.title}</h3>
+                        //     <p>{service.description}</p>
+                        //     <a href={service.links}>Read more</a>
+                        // </li>
+                        // </div>
+                        
+ })}
+                </ul> 
+                
+            </div>
             
-             <ul>
-                {/* Map throught the services-array and render each service */}
-                {
-                   services.map((service) => (
-                    <li key={service._id}>
-                      {/* Display the name and description of each service */}
-                      <h3>{service.title}</h3>
-                      <p>{service.description}</p>
-                    </li>
-                  ))
-                }
-             </ul>
-            
-        </div>
-    </section>
+        </section>
   )
 }
 
