@@ -15,35 +15,31 @@ app.use(express.json());
 
 
 // mongodb code: CONNECT TO MongoDB Database
-mongoose.connect('mongodb+srv://murtazashabbir:HHf80v4odrkyPfLn@clustertbc.vzjol.mongodb.net/?retryWrites=true&w=majority&appName=ClusterTBC', {
-  
-});
-//error handling at mongodb connection, 
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', ()=>{
-    console.log("Connected to MongDB successfully");
-    
+mongoose.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
 })
+.then(() =>console.log('Connected to MongoDB successfully'))
+.catch(err => console.error('Failed to connect to MongoDB database', err.message));
+  
 
-
-
-
-
-// Requesting the route for the Response from the server
-app.get('/', (req, res) =>{res.send('CA Consultancy Website backend')})
 
 //Define an API endpoint to get the services
 app.get('/api/services', async(req, res) => {
     //try and catch to handle exceprions
     try{
         const services = await Service.find();
+        console.log('Services found', services);
         res.json(services);
     }catch(err){
+        console.error('Error:', err.message);
         res.status(500).json({error: err.message});
     }
 })
 
+// Define a default route for the root URL
+app.get('/', (req, res) =>{res.send('Welcome CA Consultancy Website backend')})
+
 // Start the Server
-app.listen(PORT, () => {console.log('Server is running on  http://localhost:8080')}) 
+app.listen(PORT, () => {console.log(`Server is running on  http://localhost:${PORT}`)}) 
 
