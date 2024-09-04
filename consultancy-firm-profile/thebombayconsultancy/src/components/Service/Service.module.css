@@ -1,1 +1,41 @@
-@import "../../vars.css"
+@import "../../vars.css";
+.container {
+    /* Center and space out content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+  }
+  
+  .title {
+    /* Title styling */
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 20px;
+  }
+  
+  .services {
+    /* Flexbox layout to align cards */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .services ul {
+    /* Remove default list styling */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* Flexbox layout for list items */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .services li {
+    /* Each list item has a margin for spacing */
+    margin: 0 15px;
+  }
+  

@@ -1,14 +1,15 @@
 import React from 'react'
 import { getImageUrl } from '../../utils';
-export const ServiceCard = ({service:{imageSrc, title, description, links}}) => {
+import styles from './ServiceCard.module.css';
+export const ServiceCard = ({service:{imageSrc, title, description, readMore}}) => {
   return (
-    <div >
+    <div className={styles.container} >
                         <li>
                             {/* Display the name and description of each service */}
-                            <img src={getImageUrl(imageSrc)} alt={`Image of ${title}`} />
-                            <h3>{title}</h3>
-                            <p>{description}</p>
-                            <a href={links}>Read more</a>
+                            <img className={styles.image} src={imageSrc} alt={`Image of ${title}`} />
+                            <h3 className={styles.title}>{title}</h3>
+                            <p className={styles.description}>{description}</p>
+                            <a className={styles.link} href={readMore}>Read more</a>
                         </li>
         </div>
   )

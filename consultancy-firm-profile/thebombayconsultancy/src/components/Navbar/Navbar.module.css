@@ -2,148 +2,117 @@
 
 .navbar {
     background-color: #f5f5f5f6;
-    position: fixed; /* Fixed position */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 10%; /* Adjusted padding */
-    z-index: 1000; /* Ensure it's above other content */
-    border-bottom: 2px solid #ddd; /* Distinguishable line between navbar and content */
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition */
+    padding: 20px 10%;
+    z-index: 1000;
+    border-bottom: 2px solid #ddd;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 .title {
-
-    font-size: 30px; /* Fix req */
+    font-size: 30px;
     font-weight: 600;
     text-decoration: none;
-    color: var(--color-primary); /* Optional: change text color */
+    color: var(--color-primary);
 }
 
-.menu {
-    display: flex;
-    align-items: center;
+.menuBtn {
+    display: block;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 6px;
+    font-size: 20px;
+    color: var(--color-primary);
+    transition: color 0.3s ease;
+}
+
+.menuBtn img {
+    width: 24px;
+    height: 24px;
+}
+
+.menuBtn:hover {
+    color: #000;
+}
+
+.menuContainer {
+    width: 100%; /* Full width of the screen */
+    background-color: var(--color-secondary);
+    padding: 20px 0;
+    border-top: 2px solid #ddd;
 }
 
 .menuItems {
     display: flex;
-    gap: 47px; /* Fix req */
+    flex-direction: column;
+    align-items: center;
     list-style: none;
-    justify-content: space-around;
-    transition: max-height 0.3s ease-out, opacity 0.3s ease-out; /* Added transition */
+    padding: 0;
+    margin: 0;
 }
 
 .menuItems li {
-    padding: 14px 20px;
+    width: 100%; /* Full width for each menu item */
+    text-align: center;
 }
 
 .menuItems a {
-    font-size: 16px; /* Fix req */
+    font-size: 18px;
     color: var(--color-primary);
     text-decoration: none;
-    position: relative; /* Required for the underline effect */
-    transition: color 0.3s ease; /* Smooth transition for text color */
-}
-
-.menuItems a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -5px; /* Position the underline slightly below the text */
-    width: 0%;
-    height: 2px;
-    background-color: var(--color-primary); /* Underline color */
-    transition: width 0.3s ease-in-out; /* Smooth transition for the underline effect */
-}
-
-.menuItems a:hover::after {
-    width: 100%; /* Expand the underline to the full width on hover */
-}
-
-.menuItems a:hover {
-    color: #000; /* Optional: change text color on hover */
-}
-
-.menuItems li a {
-    text-decoration: none;
     display: block;
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.menuItems li:hover {
+    background-color: #f5f5f5;
 }
 
 @media screen and (max-width: 900px) {
-    
     .navbar {
-        flex-direction: column;
-       
-        padding: 10px 5%; /* Adjusted padding for mobile view */
+        flex-direction: row;
+        align-items: center;
+        padding: 10px 5%;
     }
 
-    .menu {
-        flex-direction: column;
-        position: absolute;
-        top: 80px; /* Space from the top to avoid overlapping with the navbar */
-        right: 0;
-        width: 100%; /* Full width */
-        background-color: var(--color-secondary);
-         /* Border to separate from the navbar */
-        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    .title {
+        flex: 1;
+    }
+
+    .title img {
+        height: 40px;
+        max-width: 100%;
     }
 
     .menuBtn {
-        display: block; /* Should be visible/displayed */
-        cursor: pointer;
-        font-size: 24px; /* Larger font size for the button */
-        color: var(--color-primary); /* Button color */
-        background: none;
-        border: none;
-        padding: 10px;
-        transition: color 0.3s ease; /* Smooth transition */
+        font-size: 20px;
     }
 
-    .menuBtn:hover {
-        color: #000; /* Change color on hover */
+    .menuContainer {
+        position: relative; /* So it pushes content below it */
     }
 
     .menuItems {
-        display: none; /* Items should not be displayed initially */
         flex-direction: column;
-        align-items: center;
-        gap: 13px;
-        padding: 24px 0; /* Adjust padding */
-    }
-
-    .menuOpen {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        z-index: 1; /* Ensure it appears above other content */
-    }
-
-    .menuItems a {
-        font-size: 18px; /* Slightly larger font size for better readability */
-        color: var(--color-primary);
-        text-decoration: none;
-        display: block;
-        width: 100%; /* Full width of the menu item */
-        text-align: center; /* Center text */
-        padding: 15px; /* Add padding for better touch targets */
-    }
-
-    .menuItems li {
-        width: 100%; /* Full width for each menu item */
-        text-align: center;
-        transition: background-color 0.3s ease; /* Smooth transition for background color */
-    }
-
-    .menuItems li:hover {
-        background-color: #f5f5f5; /* Change background color on hover */
+        padding: 10px 0;
     }
 }
 
 @media screen and (min-width: 900px) {
     .menuBtn {
-        display: none; /* Hide the button on larger screens */
+        display: none;
+    }
+
+    .menuContainer {
+        display: none; /* Hide menu container on larger screens */
     }
 }

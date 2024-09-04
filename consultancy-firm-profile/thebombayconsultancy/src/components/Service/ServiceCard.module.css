@@ -1,1 +1,66 @@
-@import "../../vars.css"
+@import "../../vars.css";
+.container {
+    /* Ensure the container is using flexbox to center content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Margin and padding for spacing */
+    margin: 20px;
+    padding: 20px;
+    /* Define width and border radius */
+    width: 100%;
+    max-width: 300px;
+    border-radius: 1px;
+    /* Background color and shadow */
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    /* Remove list styling for card */
+    list-style: none;
+  }
+  
+  .container:hover {
+    /* Scale up the card slightly on hover */
+    transform: scale(1.05);
+    /* Slightly increase the shadow for a lifted effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .image {
+    /* Ensure the image fits within the card */
+    width: 100%;
+    height: auto;
+    border-radius: 1px;
+    /* Add margin to the bottom */
+    margin-bottom: 15px;
+    display:block;
+  }
+  
+  .title {
+    /* Title styling */
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 10px;
+  }
+  
+  .description {
+    /* Description styling */
+    font-size: 1rem;
+    color: #666666;
+    margin-bottom: 15px;
+  }
+  
+  .link {
+    /* Link styling */
+    font-size: 1rem;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .link:hover {
+    /* Hover effect for the link */
+    text-decoration: underline;
+  }
+  
