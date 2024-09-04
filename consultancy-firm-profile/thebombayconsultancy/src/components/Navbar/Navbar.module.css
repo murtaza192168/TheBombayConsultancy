@@ -2,117 +2,157 @@
 
 .navbar {
     background-color: #f5f5f5f6;
-    position: fixed;
+    position: fixed; /* Fixed position */
     top: 0;
     left: 0;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 10%;
-    z-index: 1000;
-    border-bottom: 2px solid #ddd;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    padding: 20px 10%; /* Adjusted padding */
+    z-index: 1000; /* Ensure it's above other content */
+    border-bottom: 2px solid #ddd; /* Distinguishable line between navbar and content */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition */
 }
 
 .title {
-    font-size: 30px;
+
+    font-size: 30px; /* Fix req */
     font-weight: 600;
     text-decoration: none;
-    color: var(--color-primary);
+    color: var(--color-primary); /* Optional: change text color */
 }
 
-.menuBtn {
-    display: block;
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 6px;
-    font-size: 20px;
-    color: var(--color-primary);
-    transition: color 0.3s ease;
-}
-
-.menuBtn img {
-    width: 24px;
-    height: 24px;
-}
-
-.menuBtn:hover {
-    color: #000;
-}
-
-.menuContainer {
-    width: 100%; /* Full width of the screen */
-    background-color: var(--color-secondary);
-    padding: 20px 0;
-    border-top: 2px solid #ddd;
+.menu {
+    display: flex;
+    align-items: center;
 }
 
 .menuItems {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    gap: 47px; /* Fix req */
     list-style: none;
-    padding: 0;
-    margin: 0;
+    justify-content: space-around;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out; /* Added transition */
 }
 
 .menuItems li {
-    width: 100%; /* Full width for each menu item */
-    text-align: center;
+    padding: 14px 20px;
 }
 
 .menuItems a {
-    font-size: 18px;
+    font-size: 16px; /* Fix req */
     color: var(--color-primary);
     text-decoration: none;
-    display: block;
-    padding: 15px;
-    width: 100%;
-    text-align: center;
+    position: relative; /* Required for the underline effect */
+    transition: color 0.3s ease; /* Smooth transition for text color */
 }
 
-.menuItems li:hover {
-    background-color: #f5f5f5;
+.menuItems a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Position the underline slightly below the text */
+    width: 0%;
+    height: 2px;
+    background-color: var(--color-primary); /* Underline color */
+    transition: width 0.3s ease-in-out; /* Smooth transition for the underline effect */
+}
+
+.menuItems a:hover::after {
+    width: 100%; /* Expand the underline to the full width on hover */
+}
+
+.menuItems a:hover {
+    color: #000; /* Optional: change text color on hover */
+}
+
+.menuItems li a {
+    text-decoration: none;
+    display: block;
 }
 
 @media screen and (max-width: 900px) {
+    
     .navbar {
-        flex-direction: row;
-        align-items: center;
-        padding: 10px 5%;
+        flex-direction: column;
+       
+        padding: 10px 5%; /* Adjusted padding for mobile view */
     }
 
-    .title {
-        flex: 1;
-    }
-
-    .title img {
-        height: 40px;
-        max-width: 100%;
+    .menu {
+        flex-direction: column;
+        position: absolute;
+        top: 80px; /* Space from the top to avoid overlapping with the navbar */
+        right: 0;
+        width: 100%; /* Full width */
+        background-color: var(--color-secondary);
+         /* Border to separate from the navbar */
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     }
 
     .menuBtn {
-        font-size: 20px;
+        display: block;
+        cursor: pointer;
+        font-size: 10px;
+        color: var(--color-primary);
+        background: var(--color-bg); /* Bright yellow background */
+        border: none;
+        border-radius: 10%; /* Rounded shape */
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for 3D effect */
+        transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition */
     }
-
-    .menuContainer {
-        position: relative; /* So it pushes content below it */
+    
+    .menuBtn:hover {
+        transform: translateY(-3px); /* Move up slightly on hover */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
     }
+    
+    .menuBtn:active {
+        transform: translateY(0); /* Reset the position when clicked */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Restore original shadow */
+    }
+    
 
     .menuItems {
+        display: none; /* Items should not be displayed initially */
         flex-direction: column;
-        padding: 10px 0;
+        align-items: center;
+        gap: 13px;
+        padding: 24px 0; /* Adjust padding */
+    }
+
+    .menuOpen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 1; /* Ensure it appears above other content */
+    }
+
+    .menuItems a {
+        font-size: 18px; /* Slightly larger font size for better readability */
+        color: var(--color-primary);
+        text-decoration: none;
+        display: block;
+        width: 100%; /* Full width of the menu item */
+        text-align: center; /* Center text */
+        padding: 15px; /* Add padding for better touch targets */
+    }
+
+    .menuItems li {
+        width: 100%; /* Full width for each menu item */
+        text-align: center;
+        transition: background-color 0.3s ease; /* Smooth transition for background color */
+    }
+
+    .menuItems li:hover {
+        background-color: #f5f5f5; /* Change background color on hover */
     }
 }
 
 @media screen and (min-width: 900px) {
     .menuBtn {
-        display: none;
-    }
-
-    .menuContainer {
-        display: none; /* Hide menu container on larger screens */
+        display: none; /* Hide the button on larger screens */
     }
 }
