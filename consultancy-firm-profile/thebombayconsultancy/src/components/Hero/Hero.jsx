@@ -8,7 +8,7 @@ export const Hero = () => {
        <div className={styles.content}>
         <h1 className={styles.title}>Your Trusted Partner
         in Financial Growth</h1>
-        <p className={styles.description}>At <span className={styles.highlight}>The Bombay Consultancy</span>, 
+        <p className={styles.description}>At <span className={styles.highlight}>TheBombayConsultancy</span>, 
 we deliver expert financial solutions designed 
 to drive your success 
 </p>
