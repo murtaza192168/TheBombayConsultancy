@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { getImageUrl } from '../../utils';
 import styles from './ServiceCard.module.css';
 export const ServiceCard = ({service:{imageSrc, title, description, readMore}}) => {
@@ -15,4 +15,4 @@ export const ServiceCard = ({service:{imageSrc, title, description, readMore}}) 
   )
 }
 
-export default ServiceCard
+export default ServiceCard;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Navbar.module.css";
+import { Link } from 'react-scroll';
 import { getImageUrl } from "../../utils";
 
 const Navbar = () => {
@@ -30,22 +31,30 @@ const Navbar = () => {
             onClick={() => setMenuOpen(false)}
           >
             <li>
-              <a href="#about">About</a>
+              <Link className={styles.navLink} to="about" smooth={true} offset={-70} duration={800} onClick={()=>setMenuOpen(false)}>
+                About
+              </Link>
             </li>
             <li>
-              <a href="#service">Service</a>
+              <Link className={styles.navLink} to="service" smooth={true} offset={-110} duration={800} onClick={()=>setMenuOpen(false)}>
+                Service
+              </Link>
             </li>
             <li>
-              <a href="#articles">Articles</a>
+              <Link className={styles.navLink} to="articles" smooth={true} offset={-110} duration={800} onClick={()=>setMenuOpen(false)}>
+                Articles
+              </Link>
+            </li>
+          
+            <li>
+              <Link className={styles.navLink} to="career" smooth={true} offset={-110} duration={800} onClick={()=>setMenuOpen(false)}>
+                Career
+              </Link>
             </li>
             <li>
-              <a href="#team">Team</a>
-            </li>
-            <li>
-              <a href="#career">Career</a>
-            </li>
-            <li>
-              <a href="#contact-us">Contact Us</a>
+              <Link className={styles.navLink} to="contact-us" smooth={true} offset={-110} duration={800} onClick={()=>setMenuOpen(false)}>
+                Contact Us
+              </Link>
             </li>
           </ul>
         </div>

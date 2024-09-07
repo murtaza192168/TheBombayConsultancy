@@ -1,25 +1,24 @@
-@import "../../vars.css";
-
+/* Navbar styles */
 .navbar {
     background-color: #f5f5f5f6;
-    position: fixed; /* Fixed position */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 10%; /* Adjusted padding */
-    z-index: 1000; /* Ensure it's above other content */
-    border-bottom: 2px solid #ddd; /* Distinguishable line between navbar and content */
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition */
+    padding: 20px 10%;
+    z-index: 1000;
+    border-bottom: 2px solid #ddd;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 .title {
-    font-size: 30px; /* Fix req */
+    font-size: 30px;
     font-weight: 600;
     text-decoration: none;
-    color: var(--color-primary); /* Optional: change text color */
+    color: var(--color-primary);
 }
 
 .menu {
@@ -30,10 +29,10 @@
 
 .menuItems {
     display: flex;
-    gap: 47px; /* Fix req */
+    gap: 47px;
     list-style: none;
     justify-content: space-around;
-    transition: max-height 0.3s ease-out, opacity 0.3s ease-out; /* Smooth transition */
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
 }
 
 .menuItems li {
@@ -41,30 +40,30 @@
 }
 
 .menuItems a {
-    font-size: 16px; /* Fix req */
+    font-size: 16px;
     color: var(--color-primary);
     text-decoration: none;
-    position: relative; /* Required for the underline effect */
-    transition: color 0.3s ease; /* Smooth transition for text color */
+    position: relative;
+    transition: color 0.3s ease;
 }
 
 .menuItems a::after {
     content: '';
     position: absolute;
     left: 0;
-    bottom: -5px; /* Position the underline slightly below the text */
+    bottom: -5px;
     width: 0%;
     height: 2px;
-    background-color: var(--color-primary); /* Underline color */
-    transition: width 0.3s ease-in-out; /* Smooth transition for the underline effect */
+    background-color: var(--color-primary);
+    transition: width 0.3s ease-in-out;
 }
 
 .menuItems a:hover::after {
-    width: 100%; /* Expand the underline to the full width on hover */
+    width: 100%;
 }
 
 .menuItems a:hover {
-    color: #000; /* Optional: change text color on hover */
+    color: #000;
 }
 
 .menuItems li a {
@@ -72,13 +71,24 @@
     display: block;
 }
 
-@media screen and (max-width: 900px) {
+/* New navLink class for the Link component */
+.navLink {
+    cursor: pointer;  /* Add pointer cursor */
+    font-size: 16px;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.1s ease;
+}
 
-    
-    
+.navLink:hover {
+    color: #000;
+}
+
+/* For smaller screens */
+@media screen and (max-width: 900px) {
     .navbar {
         flex-direction: column;
-        padding: 10px 5%; /* Adjusted padding for mobile view */
+        padding: 10px 5%;
     }
 
     .menu {
@@ -92,68 +102,63 @@
         cursor: pointer;
         font-size: 0;
         color: var(--color-primary);
-        background: var(--color-bg); /* Bright yellow background */
+        background: var(--color-bg);
         border: 2px solid #ddd;
-        border-radius: 8%; /* Rounded shape */
+        border-radius: 8%;
         padding: 5px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
         position: fixed;
-        top: 20px; /* Fix the position */
-        right: 20px; /* Fixed to the right */
-        z-index: 1001; /* Above other content */
+        top: 20px;
+        right: 20px;
+        z-index: 1001;
     }
 
     .menuBtn:hover {
         background-color: #f2efef;
         border: 2px solid #afacac;
     }
-    
-    .menuBtn:active {
-        transform: translateY(0); /* Reset the position when clicked */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Restore original shadow */
-    }
 
     .menuItems {
-        display: none; /* Items should not be displayed initially */
+        display: none;
         flex-direction: column;
         align-items: center;
-        width: 100%; /* Full width of the screen */
-        padding: 24px 0; /* Adjust padding */
+        width: 100%;
+        padding: 24px 0;
         background-color: var(--color-bg);
-        transition: max-height 0.3s ease-in-out; /* Smooth open/close */
+        transition: max-height 0.3s ease-in-out;
     }
 
     .menuOpen {
         display: flex;
         flex-direction: column;
         align-items: center;
-        z-index: 1; /* Ensure it appears above other content */
-        max-height: 100vh; /* Allow it to push sections below downwards */
+        z-index: 1;
+        max-height: 100vh;
     }
 
     .menuItems a {
-        font-size: 18px; /* Slightly larger font size for better readability */
+        font-size: 18px;
         color: var(--color-primary);
         text-decoration: none;
         display: block;
-        width: 100%; /* Full width of the menu item */
-        text-align: center; /* Center text */
-        padding: 15px; /* Add padding for better touch targets */
+        width: 100%;
+        text-align: center;
+        padding: 15px;
     }
 
     .menuItems li {
-        width: 100%; /* Full width for each menu item */
+        width: 100%;
         text-align: center;
-        transition: background-color 0.3s ease; /* Smooth transition for background color */
+        transition: background-color 0.3s ease;
     }
 
     .menuItems li:hover {
-        background-color: #f5f5f5; /* Change background color on hover */
+        background-color: #f5f5f5;
     }
 }
 
 @media screen and (min-width: 900px) {
     .menuBtn {
-        display: none; /* Hide the button on larger screens */
+        display: none;
     }
 }
