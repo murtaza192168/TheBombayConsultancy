@@ -3,7 +3,7 @@ import styles from './App.module.css';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import Service from './components/Service/Service'
-
+import Career from './components/Career/Career';
 function App() {
  
 
@@ -13,6 +13,8 @@ function App() {
       <Hero />
 
       <Service/>
+
+      <Career/>
     </div>
   )
 }
