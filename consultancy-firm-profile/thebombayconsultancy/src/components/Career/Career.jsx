@@ -1,50 +1,82 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import styles from "./Career.module.css";
-import { getImageUrl } from '../../utils';
+import styles from './Career.module.css'; // Import CSS module
 
-const Career = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        resume: null
+const CareerSection = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    resume: null
+  });
+  const [message, setMessage] = useState('');
+
+  // Handle input field changes
+  const handleChange = (e) => {
+    const { name, value, files } = e.target;
+    setFormData({
+      ...formData,
+      [name]: files ? files[0] : value // Set file or other input values
     });
-    const [message, setMessage] = useState('');
+  };
 
-    const handleChange = (e) => { // This function is called every time there’s a change in any form input (such as text input, email input, or file upload).
-        const {name, value, files} = e.target;
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        setFormData({
-            ...formData, // coping existing form data to ensure that no other input field's data is lost.
-            [name]: files? files[0]: value //The square brackets around name allow the field to be updated dynamically based on which input triggered the event (e.g., "name", "email", or "resume").
-        })   // If files exists (meaning the input is a file input), it assigns files[0] to the state, which refers to the first file selected by the user.
-       // If there are no files (meaning the input is a text or email input), it assigns the value of the input (e.g., the entered text or email) to the state.
-    } //handleChange end
+    // Create FormData object to handle file upload
+    const form = new FormData();
+    form.append('name', formData.name);
+    form.append('email', formData.email);
+    form.append('resume', formData.resume);
 
-    const handleSubmit = async () => {
-        //         Multipart Data: When dealing with file uploads, the FormData object allows you to handle binary files (like the resume) and text data (like name and email) together. This makes it suitable for sending both types of data in one HTTP request.
-// Content-Type: By default, when using FormData, the browser sets the request's Content-Type header to multipart/form-data, which is necessary for sending files in an HTTP request.
-const form = new FormData(); // FormData is a built-in JavaScript class used to construct a set of key-value pairs that represent form fields and their values.
-form.append('name', formData.name); // The append() method is used to add data to the FormData object.
-form.append('email', formData.email);
-form.append('resume', formData.resume);
-
-        try{
-            await axios.post('/api/apply', form, {
-                headers: {'Content-Type': 'multipart/form-data'}
-            })
-            setMessage('Thak you for your application. We will review it and get back to you soon.');
-        }
-        catch(error){
-            setMessage('Something went wrong. Pease try again later.')
-        }
-    }// handleSubmit end
-
-
+    try {
+      const response = await axios.post('/api/apply', form, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      });
+      console.log('Server response:', response); // Log response for debugging
+      setMessage('Thank you for your application. We will review it and get back to you soon.');
+    } catch (error) {
+      console.error('Error during application submission:', error.response || error.message); // Improved error logging
+      setMessage('Something went wrong. Please try again later.');
+    }
+  };
 
   return (
-    <section id='career'>Careers</section>
-  )
-}
+    <section id='career' className={styles.careerSectionWrapper}> {/* Section wrapping the entire content */}
+      <h2 className={styles.sectionHeading}>Apply for a Career</h2> {/* Section heading */}
+      <div className={styles.careerSection}> {/* Form container */}
+        <form onSubmit={handleSubmit}> {/* Form submission handler */}
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            value={formData.name}
+            onChange={handleChange}
+            className={styles.inputField}
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            className={styles.inputField}
+            required
+          />
+          <input
+            type="file"
+            name="resume"
+            onChange={handleChange}
+            className={styles.fileInput}
+            required
+          />
+          <button type="submit" className={styles.submitButton}>Apply</button> {/* Submit button */}
+        </form>
+        {message && <p className={styles.submissionMessage}>{message}</p>} {/* Success/Error message */}
+      </div>
+    </section>
+  );
+};
 
-export default Career
+export default CareerSection;
