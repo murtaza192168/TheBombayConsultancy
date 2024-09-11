@@ -17,6 +17,12 @@
     transition: all 0.3s ease-in-out;
     /* Remove list styling for card */
     list-style: none;
+    opacity: 0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .container.visible{
+    opacity: 1;
+    transform: translateY(0);
   }
   
   .container:hover {

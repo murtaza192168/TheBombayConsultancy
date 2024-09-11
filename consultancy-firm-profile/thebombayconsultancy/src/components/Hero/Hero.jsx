@@ -12,7 +12,8 @@ export const Hero = () => {
 we deliver expert financial solutions designed 
 to drive your success 
 </p>
-<a className={styles.contactBtn} href="#contactus">Get in touch</a>
+
+<a className={styles.contactBtn} href="https://wa.me/971501085253"><i class="fab fa-whatsapp"></i>Get in touch</a>
        </div>
        <img className={styles.heroImg} src={getImageUrl('hero/heroImage2.png')} alt="hero image" />
     </section>

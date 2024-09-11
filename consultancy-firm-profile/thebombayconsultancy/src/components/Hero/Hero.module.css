@@ -41,21 +41,31 @@
     align-items: center;
     justify-content: center;
     padding: 12px 24px;
-    font-size: 1.125rem;
-    color: var(--color-dark);
-    background-color: var(--color-secondary); /* Button color */
+    /* font-size: 1.125rem; */
+    color: var(--color-bg);
+    background-color: #25D366; /* Button color */
     text-decoration: none;
     border-radius: 3px;
+    font-family: 'Arial', sans-serif;
     border: var(--color-primary);
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+    transition: background-color 0.3s ease, transform 0.7s ease; /* Smooth transition for hover effects */
     max-width: max-content;
+    margin-right: 10px;
+    font-size: 20px;
     cursor: pointer;
 }
 
 .contactBtn:hover {
-    background-color: var(--color-primary);
+    background-color: #1DA851;
     color: #fff;
     transform: scale(1.05);
+}
+.contactBtn i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+.contactBtn i:before {
+    content: '\f232'; /* FontAwesome WhatsApp icon */
 }
 
 .heroImg {

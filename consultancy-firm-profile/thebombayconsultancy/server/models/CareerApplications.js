@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
-// define the schema for application data on career page
+// Define the schema for application data on the career page
 const applicationSchema = new mongoose.Schema({
-    name: {type:String, required: true},
-    email: {type:String, required: true},
-    resume: {type:String, required: true} //Stores the path to the uploaded resume
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    // resume: String // Removed as per the requirement
+});
 
-    // Create a mongoose model for an application in career
-})
+// Create and export the model
 module.exports = mongoose.model('CareerApplications', applicationSchema);

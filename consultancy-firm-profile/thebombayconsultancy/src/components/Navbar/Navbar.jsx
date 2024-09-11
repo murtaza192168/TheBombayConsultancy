@@ -10,7 +10,7 @@ const Navbar = () => {
     <section>
       <nav className={styles.navbar}>
         <a className={styles.title} href="/">
-          <img src={getImageUrl("nav/tbh_navbarimage.png")} alt="Logo" />
+          <img src={getImageUrl("nav/company_logo.png")} alt="Logo" />
         </a>
 
         <div className={styles.menu}>

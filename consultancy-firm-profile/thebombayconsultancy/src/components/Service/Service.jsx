@@ -12,10 +12,10 @@ import {ServiceCard} from "./ServiceCard";
             try{
                 // ftch data from the server endpoint
                 // using await to wait for the promise to resolve and get the data
-                const response = await fetch('http://localhost:3000/api/services');
+                const response = await fetch(`http://localhost:3000/api/services`);
                 //Custom Exception applied using throw keyword :additional handling with a condition
                 if(!response.ok){
-                  throw new Error('Network response was not ok')
+                  throw new Error('Network response was not ok');
                 }
 
                 // Parse the JSON response
@@ -33,7 +33,7 @@ import {ServiceCard} from "./ServiceCard";
     
 
   return (
-    <section id='service' loading="lazy" className={styles.container}>
+    <section id='service' className={styles.container}>
             <h2 className={styles.title}>Services We Offer</h2>
             <div className={styles.services}>
                 <ul>
