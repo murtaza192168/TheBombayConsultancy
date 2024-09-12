@@ -5,14 +5,14 @@ import {ServiceCard} from "./ServiceCard";
 
 
  const Service = () => {
-
+  const apiUrl = process.env.REACT_APP_API_URL;
     const [services, setServices] = useState([]);
     useEffect(() =>{
         const fetchServices = async () => {
             try{
                 // ftch data from the server endpoint
                 // using await to wait for the promise to resolve and get the data
-                const response = await fetch("https://thebombayconsultancy.onrender.com/api/services");
+                const response = await fetch(`${apiUrl}/api/services`);
                 //Custom Exception applied using throw keyword :additional handling with a condition
                 if(!response.ok){
                   throw new Error('Network response was not ok');
