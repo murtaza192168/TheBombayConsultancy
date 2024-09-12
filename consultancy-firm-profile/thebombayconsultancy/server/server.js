@@ -14,7 +14,9 @@ const app = express();
 dotenv.config({ path: './config.env' });
 const PORT = process.env.PORT || 8080;
 
-app.use(cors());
+app.use(cors(
+   {origin: 'https://thebombayconsultancy.onrender.com/',} 
+));
 app.use(express.json());
 
 // MongoDB connection
