@@ -15,7 +15,7 @@ dotenv.config({ path: './config.env' });
 const PORT = process.env.PORT || 8080;
 
 app.use(cors(
-   {origin: 'https://thebombayconsultancy.onrender.com/',} 
+   {origin: 'https://the-bombay-consultancy-fyyjk73kw-murtaza192168s-projects.vercel.app',} 
 ));
 app.use(express.json());
 
