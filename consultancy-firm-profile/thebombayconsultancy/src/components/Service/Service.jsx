@@ -12,7 +12,7 @@ import {ServiceCard} from "./ServiceCard";
             try{
                 // ftch data from the server endpoint
                 // using await to wait for the promise to resolve and get the data
-                const response = await fetch(`http://localhost:3000/api/services`);
+                const response = await fetch(`https://thebombayconsultancy-backend.onrender.com`);
                 //Custom Exception applied using throw keyword :additional handling with a condition
                 if(!response.ok){
                   throw new Error('Network response was not ok');
