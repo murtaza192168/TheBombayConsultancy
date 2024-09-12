@@ -88,10 +88,8 @@
 @media screen and (max-width: 900px) {
     .navbar {
         flex-direction: column;
-      padding-bottom: 80%;
-        padding-bottom: 100px;
-        padding-left: 5%;
-        padding-right: 5%;
+        padding: 10px 5%;
+       
     }
 
     .menu {
@@ -148,7 +146,8 @@
         display: block;
         width: 100%;
         text-align: center;
-        padding: 15px;
+        padding-top: 0.5rem;
+        padding-bottom: 0.1rem;
     }
 
     .menuItems li {
