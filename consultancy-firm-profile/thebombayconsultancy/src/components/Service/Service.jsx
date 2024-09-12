@@ -10,6 +10,7 @@ import {ServiceCard} from "./ServiceCard";
     useEffect(() =>{
       const apiUrl = process.env.REACT_APP_API_URL;
         const fetchServices = async () => {
+          
             try{
                 // ftch data from the server endpoint
                 // using await to wait for the promise to resolve and get the data
