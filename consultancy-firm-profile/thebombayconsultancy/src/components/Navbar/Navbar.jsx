@@ -53,7 +53,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link className={styles.navLink} to="contact-us" smooth={true} offset={-110} duration={800} onClick={()=>setMenuOpen(false)}>
-                Contact Us
+                Contact
               </Link>
             </li>
           </ul>
