@@ -5,7 +5,7 @@ import { getImageUrl } from "../../utils";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  
   return (
     <section>
       <nav className={styles.navbar}>
@@ -15,7 +15,7 @@ const Navbar = () => {
 
         <div className={styles.menu}>
           <img
-            className={styles.menuBtn}
+            className={`${styles.menuBtn} ${menuOpen ? 'active' : ''}`}
             src={
               menuOpen
                 ? getImageUrl("nav/closeIcon.png")
