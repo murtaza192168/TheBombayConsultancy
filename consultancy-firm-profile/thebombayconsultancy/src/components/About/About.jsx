@@ -62,9 +62,15 @@ const About = () => {
             <li>Accounts Writing (Bookkeeping)</li>
             <li>Finalization of Books of Accounts</li>
         </ul>
-        With expertise in both local and international markets, we provide tailored solutions designed to meet the unique needs of each client. Whether you’re a startup seeking to establish operations in the UAE or an established business looking to streamline your financial processes, <span className={styles.highlight}>The Bombay Consultancy</span>  is here to provide expert guidance and support.
        </p>
     </div>{/*para3 end*/}
+
+    <div className={styles.para}>
+        <p className={styles.description}>
+        With expertise in both local and international markets, we provide tailored solutions designed to meet the unique needs of each client. Whether you’re a startup seeking to establish operations in the UAE or an established business looking to streamline your financial processes, <span className={styles.highlight}>The Bombay Consultancy</span>  is here to provide expert guidance and support.
+        </p>
+    </div>
+       
        
     </div>
  </section>
