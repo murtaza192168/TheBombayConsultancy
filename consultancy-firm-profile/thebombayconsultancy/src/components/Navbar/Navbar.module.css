@@ -13,6 +13,10 @@
     border-bottom: 2px solid #ddd;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
+.navbarHidden{
+    transform: translateY(-100%);
+    opacity: 0;
+}
 
 .title {
     font-size: 30px;
@@ -129,7 +133,7 @@
         align-items: center;
         width: 100%;
         padding: 0;
-        background-color: var(--color-bg);
+        /* background-color: var(--color-bg); */
         max-height: 0; /* Collapse height */
         overflow: hidden; /* Hide overflow */
         opacity: 0; /* Make transparent */
