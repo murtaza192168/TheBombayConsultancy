@@ -18,10 +18,11 @@ const Navbar = () => {
       else{
         document.body.style.overflow = 'auto';
       }
-    }
-  )
+      return() => {document.body.style.overflow = 'auto';}
+    }, [menuOpen])
 
   
+    // handle scrollY
   const [lastScrollY, setLastScrollY] = useState(0); // lastScrollY: recent verticle scroll is set to 0(px) bcz by default.
   const [showNavbar, setShowNavbar] = useState(true); // by default showNavbar is true. Bcz it has to be visible initially
   useEffect(() => {
@@ -36,15 +37,25 @@ const Navbar = () => {
         setLastScrollY(window.scrollY);
       }
       
-    }
+    };
+
+    const handleResize = () => {
+      if (window.innerWidth > 900) {
+        setMenuOpen(false); // Close menu on resize to desktop view
+        document.body.style.overflow = 'auto'; // Ensure scrolling is enabled
+      }
+    };
     window.addEventListener('scroll', handleScroll)
+    window.addEventListener('resize', handleResize);
+
 
     // clean up function
     return() =>{
       window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleResize);
     }
     
-  }, [lastScrollY])
+  }, [lastScrollY, menuOpen])
    
     
   
