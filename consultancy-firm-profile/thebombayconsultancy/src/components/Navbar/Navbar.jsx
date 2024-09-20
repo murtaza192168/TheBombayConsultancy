@@ -101,7 +101,7 @@ const Navbar = () => {
             </li>
           
             <li>
-              <Link className={styles.navLink} to="career" smooth={true} offset={-110} duration={800} onClick={()=>setMenuOpen(false)}>
+              <Link className={styles.navLink} to="careerform" smooth={true} offset={-110} duration={800} onClick={()=>setMenuOpen(false)}>
                 Career
               </Link>
             </li>
