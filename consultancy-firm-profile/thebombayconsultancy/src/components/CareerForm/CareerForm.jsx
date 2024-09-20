@@ -15,7 +15,7 @@ const CareerForm = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3000/api/careers', {
+      const response = await fetch('https://thebombayconsultancy.onrender.com/api/careers', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
