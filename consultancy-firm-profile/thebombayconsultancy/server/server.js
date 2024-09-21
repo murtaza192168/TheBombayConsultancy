@@ -16,8 +16,9 @@ app.use(bodyParser.json());
 dotenv.config({ path: './config.env' });
 const PORT = process.env.PORT || 8080;
 app.use(cors(
-    // {origin: 'http://localhost:5173'}
     {origin: 'https://the-bombay-consultancy.vercel.app'}
+    // {origin: 'http://localhost:5173'}
+    
    
      
      
@@ -67,22 +68,37 @@ const applicationSchema = new mongoose.Schema({
       // Save the application to the database
       await newApplication.save();
 //***************************************************************** */
-      // Send an acknowledgement email
-      const mailOptions = {
+      // Send an acknowledgement email TO THE APPLICANT
+      const applicantMailOptions = {
         from: process.env.EMAIL, // Sender address
         to: req.body.email, // Applicant's email
         subject: 'Application Received - The Bombay Consultancy',
         text: `Greetings from The Bombay Consultancy,\n\nThank you, ${req.body.name}, for applying. We have received your application and will review it shortly. We will contact you if we need further details.\n\nBest Regards,\nThe Bombay Consultancy Team`
       };
-      transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-          console.error('Error sending email:', error);
-          return res.status(500).json({ message: 'Application submitted but email failed to send.' });
-        }
-        console.log('Email sent: ' + info.response);
-        res.status(201).json({ message: 'Application submitted successfully and email sent.' });
-      });
-    } catch (error) {
+      // Send an email to the FIRM OWNER
+      const ownerMailOptions = {
+        from: process.env.EMAIL, // sender address
+        to: 'murtazacloudwork1252@gmail.com', // owner's email
+        subject: 'New Job Application Received',
+        text: `A new job application has been submitted.\n\nApplicant Details:\nName: ${req.body.name}\nEmail: ${req.body.email}\nCover Letter:\n${req.body.coverLetter}\n\nPlease review the application in the system.`
+      }
+
+      // SEND EMAILS IN PARALLEL: Using Promise.all([])
+      const sendEmails = Promise.all([ // instead of writing .then & .catch for every single Object, we use Promise.all([all call here those objects ref here]), wrap that in a variable (sendEmails) and then sendEmails.then.catch....
+        transporter.sendMail(applicantMailOptions),
+        transporter.sendMail(ownerMailOptions),
+      ]);
+      sendEmails.then((results) => {
+        console.log('Email sent:', results);
+        res.status(201).json({message: 'Application submitted successfully and emails sent.' })
+      }).catch((emailError) => {
+        console.error('Error sending emails', emailError);
+        res.status(500).json({message: 'Application submitted but email sending failed.'})
+      })
+
+      
+    } 
+    catch (error) {
       console.error('Error submitting application:', error);
       res.status(500).json({ message: 'Error submitting application' });
     }
