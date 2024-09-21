@@ -10,10 +10,11 @@
   
   .title {
     /* Title styling */
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--color-dark);
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    font-family: var(--font-roboto);
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
   }
   
   .services {
@@ -38,3 +39,16 @@
     /* Each list item has a margin for spacing */
     margin: 0 15px;
   }
+
+  /* Responsive adjustments */
+@media (max-width: 992px) {
+  .title {
+    font-size: 2rem; /* Adjust heading size for smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.8rem; /* Further adjust for mobile devices */
+  }
+}

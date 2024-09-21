@@ -22,7 +22,7 @@ const Footer = () => {
           <li><Link to="about">About Us</Link></li>
           <li><Link to="service">Services</Link></li>
           <li><Link to="contact-us">Contact</Link></li>
-          <li><Link to="privacy">Privacy Policy</Link></li>
+          <li><Link to="careerform">Careers</Link></li>
         </ul>
       </div>
       <div className={styles.footerSocial}>

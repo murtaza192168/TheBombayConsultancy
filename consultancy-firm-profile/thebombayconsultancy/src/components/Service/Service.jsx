@@ -36,7 +36,7 @@ import {ServiceCard} from "./ServiceCard";
 
   return (
     <section id='service' className={styles.container}>
-            <h2 className={styles.title}>Services We Offer</h2>
+            <h2 className={styles.title}> Services We Offer</h2>
             <div className={styles.services}>
                 <ul>
                     {/* Map through the services array and render each service */}

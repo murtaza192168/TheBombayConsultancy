@@ -91,7 +91,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link className={styles.navLink} to="service" smooth={true} offset={-110} duration={800} onClick={()=>setMenuOpen(false)}>
-                Service
+                Services
               </Link>
             </li>
             <li>
@@ -102,7 +102,7 @@ const Navbar = () => {
           
             <li>
               <Link className={styles.navLink} to="careerform" smooth={true} offset={-110} duration={800} onClick={()=>setMenuOpen(false)}>
-                Career
+                Careers
               </Link>
             </li>
             <li>

@@ -31,7 +31,7 @@ const About = () => {
     <section loading='lazy' id='about' ref={sectionRef} className={`${styles.container} ${isVisible ? styles.visible : ''} `}>
         
     <div className={styles.content}>
-     <h1 className={styles.title}>About us</h1>
+     <h1 className={styles.title}>Who We Are ?</h1>
      <div className={styles.image_container}>
             <img className={styles.about_image} src={getImageUrl('about/about_image.png')} alt="" />
         </div>
