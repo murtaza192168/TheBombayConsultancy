@@ -1,2 +1,271 @@
-@import '../../vars.css';
 
+.careerSection {
+    scroll-margin-top: 70px; /* Ensures that the section is fully visible when scrolled to */
+    padding-top: 4rem;
+    padding: 3rem 1rem; /* Adjusted padding */
+    background-color: var(--color-bg); /* Light background color */
+    color: var(--color-text); /* Main text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formContainer {
+    background-color: #ffffff; /* White background for the form */
+    padding: 2rem;
+    border-radius: 12px; /* Smooth corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Strong shadow for depth */
+    max-width: 500px;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formContainer:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.formTitle {
+    font-family: var(--font-roboto); /* Use Roboto font */
+    font-size: 2.5rem; /* Emphasized title size */
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary); /* Primary color for title */
+    text-align: center;
+    animation: fadeIn 0.5s ease; /* Animation for title */
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Consistent spacing */
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.formLabel {
+    font-family: var(--font-roboto); /* Use Roboto font */
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--color-dark); /* Color for labels */
+}
+
+.formInput,
+.formTextarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-secondary); /* Use secondary color for borders */
+    border-radius: 6px; /* Soft corners */
+    font-family: var(--font-roboto); /* Consistent font */
+    font-size: 1rem;
+    background-color: #f7f9fc; /* Light background for input fields */
+    color: var(--color-text); /* Consistent input text color */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+    border-color: var(--color-primary); /* Highlight color on focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(2, 60, 108, 0.3); /* Subtle glow on focus */
+}
+
+.formTextarea {
+    height: 180px;
+    resize: none; /* Prevent resizing */
+}
+
+.submitButton {
+    padding: 0.75rem 2rem;
+    font-family: var(--font-roboto); /* Consistent button font */
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ffffff; /* White text */
+    background-color: var(--color-primary); /* Primary button color */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%; /* Full-width button */
+}
+
+.submitButton:hover {
+    background-color: var(--color-secondary); /* Change to secondary color on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Modal Style */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it sits above other content */
+}
+
+.modalContent {
+    background-color: white; /* White background for modal */
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 90%; /* Allow the modal to be responsive */
+    width: 400px; /* Set a max width */
+    animation: fadeIn 0.3s ease;
+}
+
+.closeButton {
+    cursor: pointer;
+    font-size: 1.8rem;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: var(--color-dark); /* Use a color that fits your theme */
+    transition: color 0.3s ease;
+}
+.closeButton:hover {
+    color: var(--color-secondary); /* Change color on hover */
+}
+
+.modal p {
+    font-size: 1.2rem;
+    color: var(--color-text); /* Text color */
+}
+.checkmarkContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem; /* Space below the checkmark */
+}
+
+.checkmark {
+    width: 50px; /* Size of the checkmark */
+    height: 50px; /* Size of the checkmark */
+    animation: scaleIn 0.5s ease forwards; /* Animation on load */
+}
+
+/* Keyframe animation for fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+ /* Modal Styling */
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive styling for various devices */
+@media (max-width: 1200px) {
+    .formTitle {
+        font-size: 2.3rem; /* Adjust for medium devices */
+    }
+}
+
+@media (max-width: 992px) {
+    .formTitle {
+        font-size: 2rem; /* Adjust for smaller devices */
+    }
+
+    .submitButton {
+        width: 100%; /* Full-width button on small screens */
+        font-size: 1rem; /* Smaller button text */
+    }
+}
+
+@media (max-width: 768px) {
+    .careerSection {
+        scroll-margin-top: 60px; /* Adjust based on the navbar height on mobile */
+    }
+    .formContainer {
+        padding: 1.5rem; /* Adjust padding for smaller screens */
+        max-width: 90%; /* Allow more width on small devices */
+    }
+
+    .formInput,
+    .formTextarea {
+        font-size: 0.95rem; /* Slightly smaller inputs */
+        padding: 0.65rem; /* Adjust padding */
+    }
+
+    /* Modal Styling */
+    .modalContent {
+        padding: 1.5rem; /* Less padding on smaller screens */
+        width: 90%; /* Make it wider on small screens */
+    }
+
+    .modal p {
+        font-size: 1rem; /* Smaller text for small screens */
+    }
+    .checkmark {
+        width: 40px; /* Adjust checkmark size for smaller screens */
+        height: 40px;
+    }
+
+    .closeButton {
+        font-size: 1.5rem; /* Slightly smaller close button */
+    }
+
+}
+
+@media (max-width: 480px) {
+    .formTitle {
+        font-size: 1.8rem; /* Smaller title for very small screens */
+    }
+
+    .formLabel {
+        font-size: 1rem; /* Smaller label size */
+    }
+
+    .formInput,
+    .formTextarea {
+        font-size: 0.9rem; /* Smaller input text */
+    }
+    .submitButton {
+        font-size: 1rem; /* Adjust button text size for small devices */
+    }
+
+    /* Modal Styling */
+    .modalContent {
+        width: 95%; /* Almost full width for very small devices */
+        padding: 1rem; /* Minimal padding on very small screens */
+    }
+    .checkmark {
+        width: 35px; /* Smaller checkmark for very small devices */
+        height: 35px;
+    }
+
+    .closeButton {
+        font-size: 1.3rem; /* Slightly smaller close button */
+    }
+
+    .modal p {
+        font-size: 0.9rem; /* Even smaller text for very small screens */
+    }
+
+    .closeButton {
+        font-size: 1.2rem; /* Smaller close button */
+    }
+}
