@@ -1,0 +1,154 @@
+/* Reset some defaults for better consistency */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main container styles */
+.container {
+    
+    background-color: rgb(240, 240, 240); /* Slightly lighter background for contrast */
+    padding: 5rem 3rem; /* Increased padding for better spacing */
+    border-radius: 10px; /* Added rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Image container */
+.image_container {
+    display: flex;
+    justify-content: center;
+    margin: 1rem auto; /* Center the image container */
+    width: 50%; /* Increase width for larger screens */
+    max-width: 500px; /* Ensure image container doesn’t exceed this width */
+}
+
+/* About image styling */
+.about_image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for the image */
+.about_image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Visibility transition */
+.visible {
+    opacity: 1;
+    transform: translateY(0) ;
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out 3.5s; /* Adjust the timing as needed */
+}
+
+
+/* Content area styling */
+.content {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 2rem;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+}
+
+/* Title styling */
+.title {
+    font-size: 2.5rem; /* Adjusted font size for better readability */
+    text-align: center;
+    font-weight: 700; /* Bolder font weight */
+    margin-bottom: 1rem;
+    color: #2c3e50; /* Darker color for better contrast */
+}
+
+/* Paragraph styling */
+.para {
+    margin-bottom: 2rem;
+}
+
+/* Description paragraph styling */
+.description {
+    font-size: 1.25rem; /* Slightly smaller for readability */
+    color: #555;
+    text-align: justify;
+}
+
+/* Highlighted text styling */
+.highlight {
+    color: #2980b9; /* Changed color for better visibility */
+    font-weight: bold;
+    background-color: rgba(41, 128, 185, 0.1);
+    padding: 0.2rem 0.4rem;
+    border-radius: 5px;
+}
+
+/* Subtitle styling */
+.subtitle {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #2980b9; /* Changed color for consistency */
+    border-left: 4px solid #2980b9; /* Matching border color */
+    padding-left: 0.8rem;
+}
+
+/* List styling */
+.list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* List item styling */
+.list li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 1.1rem;
+}
+
+/* Hover effect for list items */
+.list li:hover {
+    background-color: #f0f8ff; /* Lighter color on hover */
+    transform: translateY(-5px);
+}
+
+/* Clear floats on smaller screens */
+@media (max-width: 900px) {
+    .image_container {
+        display: block; /* Ensure it behaves as a block element */
+        margin: 0 auto 2rem; /* Center the container */
+        width: 100%; /* Make container fill the width on small screens */
+    }
+    /* Visibility transition */
+    .visible {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .title {
+        font-size: 2rem; /* Reduced size for smaller screens */
+    }
+
+    .description {
+        font-size: 1rem; /* Adjusted for readability */
+    }
+
+    .subtitle {
+        font-size: 1.5rem; /* Smaller subtitle */
+    }
+
+    .list {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+}

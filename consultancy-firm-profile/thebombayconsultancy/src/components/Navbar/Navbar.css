@@ -1,0 +1,83 @@
+/* Navbar Container */
+.navbar {
+    z-index: 1000; /* Keep navbar on top */
+    transition: transform 0.4s ease-in-out; /* Smooth slide */
+    background-color: #f5f5f5f6;
+    padding: 10px 5%; /* Optional: adjust padding as needed */
+}
+
+/* Logo */
+.navbar-brand img {
+    max-height: 60px; /* Larger logo size */
+    transition: max-height 0.3s ease; /* Smooth scaling */
+}
+
+@media screen and (max-width: 900px) {
+    .navbar-brand img {
+        max-height: 50px; /* Slightly smaller for mobile */
+    }
+}
+
+/* Nav Links as Buttons */
+.nav-link {
+    color: var(--color-primary);
+    background-color: #e0e0e0; /* Button background color */
+    border-radius: 5px; /* Rounded button edges */
+    padding: 8px 16px; /* Adequate padding for button look */
+    margin: 4px 10px; /* Space between buttons */
+    text-align: center; /* Center-align text */
+    width: 100%; /* Full width in a column layout */
+    display: inline-block; /* Block styling for button look */
+    transition: background-color 0.3s ease, color 0.1s ease; /* Smooth color transition */
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    background-color: #d4d4d4; /* Subtle color change on hover */
+    color: #000; /* Hover text color */
+}
+
+.navbar-nav {
+    display: flex;
+    gap: 12px; /* Row gap for desktop layout */
+    justify-content: center; /* Center-align in row layout */
+    align-items: center;
+      
+}
+
+@media screen and (max-width: 900px) {
+    .navbar-nav {
+        flex-direction: column; /* Stack links in column on mobile */
+        gap: 15px; /* Larger gap for column layout */
+        align-items: center; /* Center-align links */
+        transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+}
+
+/* Slide-in effect for Mobile */
+@media screen and (max-width: 900px) {
+    .navbar-collapse {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.6s ease-in-out;
+    }
+
+    .navbar-collapse.show {
+        max-height: 500px; /* Expand to fit links */
+    }
+}
+
+/* Pointer Cursor Only on Link Content */
+.nav-link {
+    cursor: pointer;
+}
+
+/* Optional Extra Styling for Professional Look */
+.navbar-toggler {
+    border: none;
+    background: none; /* Optional: make toggler icon transparent */
+}
+
+.navbar-toggler:focus {
+    box-shadow: none; /* Remove default focus outline */
+}

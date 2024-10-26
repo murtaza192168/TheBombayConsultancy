@@ -1,45 +1,61 @@
 import React from 'react';
-import {Link} from 'react-scroll';
-import styles from './Footer.module.css';
+import { Link } from 'react-scroll';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { getImageUrl } from '../../utils';
+import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer className={styles.footer}>
-    <div className={styles.footerContainer}>
-      <div className={styles.footerLogo}>
-        <img src={getImageUrl('nav/company_logo.png')} alt="Company Logo" />
+    <footer className="bg-dark text-light py-5">
+      <div className="container">
+        <div className="row text-center text-md-start">
+          {/* Logo and Info Section */}
+          <div className="col-md-4 mb-4 mb-md-0">
+            <img 
+              src={getImageUrl('nav/company_logo.png')} 
+              alt="Company Logo" 
+              className="img-fluid mb-3" 
+              style={{ filter: 'brightness(0) invert(1)', maxWidth: '120px' }} 
+            />
+            <p className="mb-1">Ittihad Rd 30, Sector, Dubai, UAE</p>
+            <p className="mb-1">Phone: (971) 50 108 5253</p>
+            <p>Email: thebombayconsultancy@gmail.com</p>
+          </div>
+          {/* Navigation Section */}
+          <div className="col-md-4 mb-4 mb-md-0">
+            <h5 className="fw-bold mb-3">Navigation</h5>
+            <div className="d-flex flex-column align-items-center align-items-md-start">
+              <Link to="about" className="text-light text-decoration-none mb-2">About Us</Link>
+              <Link to="service" className="text-light text-decoration-none mb-2">Services</Link>
+              <Link to="contact-us" className="text-light text-decoration-none mb-2">Contact</Link>
+              <Link to="careerform" className="text-light text-decoration-none">Careers</Link>
+            </div>
+          </div>
+          {/* Social Media Section */}
+          <div className="col-md-4">
+            <h5 className="fw-bold mb-3">Follow Us</h5>
+            <div className="d-flex justify-content-center justify-content-md-start gap-3">
+              <a href="https://facebook.com" target="_blank" rel="noopener" className="text-light ">
+                <i className="bi bi-facebook" style={{ fontSize: '1.5rem' }}></i>
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-light ">
+                <i className="bi bi-twitter" style={{ fontSize: '1.5rem' }}></i>
+              </a>
+              <a href="https://www.linkedin.com/in/cajmdoctor/" target="_blank" rel="noopener noreferrer" className="text-light ">
+                <i className="bi bi-linkedin" style={{ fontSize: '1.5rem' }}></i>
+              </a>
+              <a href="https://www.instagram.com/thebombayconsultancy/" target="_blank" rel="noopener noreferrer" className="text-light ">
+                <i className="bi bi-instagram" style={{ fontSize: '1.5rem' }}></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="text-center border-top border-secondary pt-4 mt-4">
+          <p className="mb-0">&copy; 2024 theBombayConsultancy. All rights reserved.</p>
+        </div>
       </div>
-      <div className={styles.footerInfo}>
-        
-        <p className={styles.footerAddress}>Ittihad Rd 30, Sector, Dubai, United Arab Emirates</p>
-        <p className={styles.footerPhone}>Phone: (971) 50 108 5253</p>
-        <p className={styles.footerEmail}>Email: thebombayconsultancy@gmail.com</p>
-      </div>
-      <div className={styles.footerNav}>
-        <h4 className={styles.footerHeading}>Navigation</h4>
-        <ul>
-          <li><Link to="about">About Us</Link></li>
-          <li><Link to="service">Services</Link></li>
-          <li><Link to="contact-us">Contact</Link></li>
-          <li><Link to="careerform">Careers</Link></li>
-        </ul>
-      </div>
-      <div className={styles.footerSocial}>
-        <h4 className={styles.footerHeading}>Follow Us</h4>
-        <ul>
-          <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-          <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
-          <li><a href="https://www.linkedin.com/in/cajmdoctor/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-          <li><a href="https://www.instagram.com/thebombayconsultancy/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-        </ul>
-      </div>
-    </div>
-    <div className={styles.footerBottom}>
-      <p>&copy; 2024 theBombayConsultancy. All rights reserved.</p>
-    </div>
-  </footer>
-  )
-}
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;

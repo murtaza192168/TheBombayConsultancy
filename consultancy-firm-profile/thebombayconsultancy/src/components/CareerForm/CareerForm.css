@@ -1,0 +1,64 @@
+/* General form aesthetics */
+#careerform {
+    color: #343a40; /* Dark-gray text for contrast */
+  }
+  
+  /* Container styling */
+  .container {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    color: #002D62;
+  }
+  
+  /* Input fields */
+  .form-control {
+    font-size: 16px;
+    color: #495057;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    padding: 10px 12px;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa; /* Light-gray background */
+  }
+  
+  /* Expand input fields on focus */
+  .form-control:focus {
+    border-color: #002D62;
+    background-color: #ffffff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+    transform: scale(1.05); /* Slight expansion */
+    outline: none;
+  }
+  
+  /* Label styling */
+  .form-label {
+    color: #002D62; /* Match primary theme color */
+    font-weight: bold;
+  }
+  
+  /* Button styling */
+  .btn-primary {
+    background-color: #002D62;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #002D62;
+  }
+  
+  /* Modal styling */
+  .modal-content {
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .modal-title {
+    font-size: 1.5rem;
+  }
+  
+  .bi-check-circle {
+    color: green;
+  }
+  
