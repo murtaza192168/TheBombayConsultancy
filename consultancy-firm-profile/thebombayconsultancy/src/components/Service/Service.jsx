@@ -10,8 +10,8 @@ const Service = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/services');
-        // const response = await fetch('https://thebombayconsultancy.onrender.com/api/services');
+       // const response = await fetch('http://localhost:3000/api/services');
+         const response = await fetch('https://thebombayconsultancy.onrender.com/api/services');
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
         setServices(data);
