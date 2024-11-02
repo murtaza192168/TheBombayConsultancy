@@ -9,5 +9,8 @@ export default defineConfig({
     modules: {
       localsConvention: "camelCase"
     }
+  },
+  server: {
+    historyApiFallback: true,
   }
 })

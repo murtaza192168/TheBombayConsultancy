@@ -1,16 +1,54 @@
 /* Navbar Container */
-.navbar {
-    z-index: 1000; /* Keep navbar on top */
-    transition: transform 0.4s ease-in-out; /* Smooth slide */
-    background-color: #f5f5f5f6;
+.navbar .dropdown-menu {
+   
+    
+    border-radius: none;
+    border:none;
     padding: 10px 5%; /* Optional: adjust padding as needed */
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly opaque white for a polished look */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15); /* Soft, subtle shadow */
+  border: none; /* Remove border for a flat look */
+  border-radius: 0; /* No border radius */
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: opacity 0.3s ease, transform 0.2s ease;
+  pointer-events: none;
 }
+.navbar .dropdown-menu.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  
+  .navbar .dropdown-item {
+    padding: 12px 20px;
+    color: #333; /* Dark, professional color */
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Light separator */
+  }
+  .navbar .dropdown-item:last-child {
+    border-bottom: none; /* No border on the last item */
+  }
+  
+  .navbar .dropdown-item:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* Slight darken on hover */
+    color: #000;
+  }
+  
+ 
 
 /* Logo */
 .navbar-brand img {
     max-height: 60px; /* Larger logo size */
     transition: max-height 0.3s ease; /* Smooth scaling */
 }
+.navbar .dropdown-item:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* Slight darken on hover */
+    color: #000;
+    cursor: pointer;
+  }
+
 
 @media screen and (max-width: 900px) {
     .navbar-brand img {
@@ -65,6 +103,8 @@
     .navbar-collapse.show {
         max-height: 500px; /* Expand to fit links */
     }
+    /* Optional: Add background color and hover effects for better visibility */
+
 }
 
 /* Pointer Cursor Only on Link Content */
@@ -81,3 +121,4 @@
 .navbar-toggler:focus {
     box-shadow: none; /* Remove default focus outline */
 }
+

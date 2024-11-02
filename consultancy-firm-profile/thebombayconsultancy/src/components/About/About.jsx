@@ -19,9 +19,13 @@ const About = () => {
             { threshold: 0.1 }
         );
 
-        if (sectionRef.current) { observer.observe(sectionRef.current); }
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
 
-        return () => { observer.unobserve(sectionRef.current); };
+        return () => {
+            observer.unobserve(sectionRef.current);
+        };
     }, []);
 
     return (
@@ -34,10 +38,11 @@ const About = () => {
             <div className="container">
                 <h1 className="text-center mb-4 display-4 text-dark">Who We Are?</h1>
                 <div className="row justify-content-center mb-4">
-                    <div className="col-md-6">
+                    <div className="col-12">
                         <img
-                            className="img-fluid rounded shadow-lg transition-transform duration-300 hover:scale-105"
-                            src={getImageUrl('about/about_image.png')}
+                            className="img-fluid w-100"
+                            style={{ height: '50vh', objectFit: 'cover' }}
+                            src={getImageUrl('about/about_image.jpg')}
                             alt="About Us"
                         />
                     </div>

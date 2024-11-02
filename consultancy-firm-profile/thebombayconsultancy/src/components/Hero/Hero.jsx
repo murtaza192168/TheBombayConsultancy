@@ -7,9 +7,9 @@ export const Hero = () => {
   return (
     <section id='contact-us' className="container-fluid d-flex align-items-center justify-content-between hero-section">
       <div className="content">
-        <h1 className="display-4 font-weight-bold text-dark mb-3">Your Trusted Partner in Financial Growth</h1>
+        <h1 className="display-4 font-weight-bold text-dark mb-3">Your Partner in Accounting Compliance and Beyond</h1>
         <p className="lead text-secondary mb-4">
-          At <span className="highlight">TheBombayConsultancy</span>, we deliver expert financial solutions designed to drive your success
+          At <span className="highlight">F J Consultancy</span>, we deliver accounting and financial solutions designed to drive your solutions
         </p>
         <a className="btn btn-success contact-btn" href="https://wa.me/971501085253">
           <i className="fab fa-whatsapp"></i> Get in touch

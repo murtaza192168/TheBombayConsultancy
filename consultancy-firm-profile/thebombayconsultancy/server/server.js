@@ -2,8 +2,11 @@ const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const path = require('path');
 const cors = require('cors');
 const nodemailer = require('nodemailer'); // Add nodemailer here
+
+// Serve images from the "service" folder
 
 
 // Import the Service Model from (models directory)
@@ -16,8 +19,8 @@ app.use(bodyParser.json());
 dotenv.config({ path: './config.env' });
 const PORT = process.env.PORT || 8080;
 app.use(cors(
-   //{origin: 'http://localhost:5173'}
-   {origin: 'https://the-bombay-consultancy.vercel.app'}
+   {origin: 'http://localhost:5173'}
+   //{origin: 'https://the-bombay-consultancy.vercel.app'}
      
     ));
     app.use(express.json());
@@ -31,6 +34,13 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://murtazashabbir:HHf80v
     useUnifiedTopology: true,
 }).then(() => console.log('Connected to MongoDB successfully'))
   .catch(err => console.error('Failed to connect to MongoDB database', err.message));
+
+// ********************************************************************** //
+// Define a Schema for each services card
+
+
+
+// ********************************************************************** //
 
 
 // Define a schema
@@ -70,8 +80,8 @@ const applicationSchema = new mongoose.Schema({
         from: process.env.EMAIL, // Sender address
         to: req.body.email, // Applicant's email
         subject: 'Application Received - The Bombay Consultancy',
-        text: `Greetings from The Bombay Consultancy,\n\nThank you, ${req.body.name}, for applying. We have received your application and will review it shortly. We will contact you if we need further details.\n\nBest Regards,\nThe Bombay Consultancy Team`
-      };
+        text: `Greetings from The Bombay Consultancy,\n\nThank you, ${req.body.name}, for applying. We have received your application and will review it shortly. We will contact you if we need further details.\n\nBest Regards,\nThe Bombay Consultancy Team
+      `};
       // Send an email to the FIRM OWNER
       const ownerMailOptions = {
         from: process.env.EMAIL, // sender address
@@ -116,6 +126,7 @@ app.get('/api/services', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
 
 
 
