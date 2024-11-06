@@ -107,13 +107,13 @@ const Navbar = () => {
                 Services
               </Link>
               <div className={`dropdown-menu ${dropdownOpen ? "show" : ""}`}>
-                <Link className="dropdown-item" to="https://the-bombay-consultancy.vercel.app/services/accounting-and-bookkeeping" target="_blank" onClick={() => setMenuOpen(false)}>Accounting & Bookkeeping</Link>
-                <Link className="dropdown-item" to="https://the-bombay-consultancy.vercel.app/services/vat-corporate-tax-compliance" target="_blank" onClick={() => setMenuOpen(false)}>VAT & Corporate Tax Compliance & Consultancy</Link>
-                <Link className="dropdown-item" to="https://the-bombay-consultancy.vercel.app/services/company-formation-liquidation" target="_blank" onClick={() => setMenuOpen(false)}>Company Formation & Liquidation</Link>
-                <Link className="dropdown-item" to="https://the-bombay-consultancy.vercel.app/services/nri-taxation" target="_blank" onClick={() => setMenuOpen(false)}>NRI Taxation</Link>
-                <Link className="dropdown-item" to="https://the-bombay-consultancy.vercel.app/services/internal-audit" target="_blank" onClick={() => setMenuOpen(false)}>Internal Audit</Link>
-                <Link className="dropdown-item" to="https://the-bombay-consultancy.vercel.app/services/project-reports" target="_blank" onClick={() => setMenuOpen(false)}>Project Reports</Link>
-                <Link className="dropdown-item" to="https://the-bombay-consultancy.vercel.app/services/business-planning" target="_blank" onClick={() => setMenuOpen(false)}>Business Planning</Link>
+                <Link className="dropdown-item" to="/services/accounting-and-bookkeeping" target="_blank" onClick={() => setMenuOpen(false)}>Accounting & Bookkeeping</Link>
+                <Link className="dropdown-item" to="/services/vat-corporate-tax-compliance" target="_blank" onClick={() => setMenuOpen(false)}>VAT & Corporate Tax Compliance & Consultancy</Link>
+                <Link className="dropdown-item" to="/services/company-formation-liquidation" target="_blank" onClick={() => setMenuOpen(false)}>Company Formation & Liquidation</Link>
+                <Link className="dropdown-item" to="/services/nri-taxation" target="_blank" onClick={() => setMenuOpen(false)}>NRI Taxation</Link>
+                <Link className="dropdown-item" to="/services/internal-audit" target="_blank" onClick={() => setMenuOpen(false)}>Internal Audit</Link>
+                <Link className="dropdown-item" to="/services/project-reports" target="_blank" onClick={() => setMenuOpen(false)}>Project Reports</Link>
+                <Link className="dropdown-item" to="/services/business-planning" target="_blank" onClick={() => setMenuOpen(false)}>Business Planning</Link>
               </div>
             </li>
             <li className="nav-item">
