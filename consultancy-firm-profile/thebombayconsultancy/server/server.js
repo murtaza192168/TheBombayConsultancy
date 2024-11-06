@@ -6,11 +6,13 @@ const path = require('path');
 const cors = require('cors');
 const nodemailer = require('nodemailer'); // Add nodemailer here
 
-// Serve images from the "service" folder
 
 
-// Import the Service Model from (models directory)
+// Defined a Schema for each service cards in model folder. Now import it here
 const Service = require('./models/Service');
+
+
+
 
 // Create an Express server
 const app = express();
@@ -19,9 +21,8 @@ app.use(bodyParser.json());
 dotenv.config({ path: './config.env' });
 const PORT = process.env.PORT || 8080;
 app.use(cors(
-   //{origin: 'http://localhost:5173'}
    {origin: 'https://the-bombay-consultancy.vercel.app'}
-     
+   //{origin: 'http://localhost:5173'}
     ));
     app.use(express.json());
 
@@ -36,7 +37,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://murtazashabbir:HHf80v
   .catch(err => console.error('Failed to connect to MongoDB database', err.message));
 
 // ********************************************************************** //
-// Define a Schema for each services card
 
 
 
@@ -47,7 +47,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://murtazashabbir:HHf80v
 const applicationSchema = new mongoose.Schema({
     name: String,
     email: String,
-    coverLetter: String
+    query: String
   });
   
   // Create a model
@@ -69,7 +69,7 @@ const applicationSchema = new mongoose.Schema({
       const newApplication = new Application({
         name: req.body.name,
         email: req.body.email,
-        coverLetter: req.body.coverLetter
+        query: req.body.query,
       });
   
       // Save the application to the database
@@ -79,15 +79,15 @@ const applicationSchema = new mongoose.Schema({
       const applicantMailOptions = {
         from: process.env.EMAIL, // Sender address
         to: req.body.email, // Applicant's email
-        subject: 'Application Received - The Bombay Consultancy',
-        text: `Greetings from The Bombay Consultancy,\n\nThank you, ${req.body.name}, for applying. We have received your application and will review it shortly. We will contact you if we need further details.\n\nBest Regards,\nThe Bombay Consultancy Team
+        subject: 'Enquiry Received - FJ Consultancy',
+        text: `Greetings from FJ Consultancy,\n\nThank you, ${req.body.name}, for reaching out to us. We have received your enquiry and will get back to you shortly. For any urgent assistance, feel free to contact us directly.\n\nBest Regards,\nFJ Consultancy Team
       `};
       // Send an email to the FIRM OWNER
       const ownerMailOptions = {
         from: process.env.EMAIL, // sender address
         to: 'murtazacloudwork1252@gmail.com', // owner's email
-        subject: 'New Job Application Received',
-        text: `A new job application has been submitted.\n\nApplicant Details:\nName: ${req.body.name}\nEmail: ${req.body.email}\nCover Letter:\n${req.body.coverLetter}\n\nPlease review the application in the system.`
+        subject: 'New Enquiry Received',
+        text: `A new enquiry has been submitted.\n\nEnquirer Details:\nName: ${req.body.name}\nEmail: ${req.body.email}\nQuery:\n${req.body.query}\n\nPlease review the enquiry and respond as needed.`
       }
 
       // SEND EMAILS IN PARALLEL: Using Promise.all([])
@@ -97,17 +97,17 @@ const applicationSchema = new mongoose.Schema({
       ]);
       sendEmails.then((results) => {
         console.log('Email sent:', results);
-        res.status(201).json({message: 'Application submitted successfully and emails sent.' })
+        res.status(201).json({message: 'Query submitted successfully and emails sent.' })
       }).catch((emailError) => {
         console.error('Error sending emails', emailError);
-        res.status(500).json({message: 'Application submitted but email sending failed.'})
+        res.status(500).json({message: 'Query submitted but email sending failed.'})
       })
 
       
     } 
     catch (error) {
       console.error('Error submitting application:', error);
-      res.status(500).json({ message: 'Error submitting application' });
+      res.status(500).json({ message: 'Error submitting query' });
     }
   });
 
@@ -115,7 +115,7 @@ const applicationSchema = new mongoose.Schema({
 
     
 
-// Define an API endpoint to get the services
+// Define an API endpoint to get the services details in service cards
 app.get('/api/services', async (req, res) => {
     try {
         const services = await Service.find();
@@ -126,6 +126,7 @@ app.get('/api/services', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
 
 
 

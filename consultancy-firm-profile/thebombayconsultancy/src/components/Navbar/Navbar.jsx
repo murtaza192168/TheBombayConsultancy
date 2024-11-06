@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-// import { Link } from "react-scroll";
-import {Link} from "react-router-dom";
-
-
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { getImageUrl } from "../../utils";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -10,78 +7,76 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const menuRef = useRef(null); // Reference for the menu container
-
-  // Toggle body scroll based on menu state
-  useEffect(() => {
-    if (window.innerWidth <= 900) {
-      document.body.style.overflow = menuOpen ? "hidden" : "auto";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [menuOpen]);
-
-  // Close the menu on outside click or scroll
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setMenuOpen(false);
-      }
-    };
-
-    const handleScroll = () => {
-      setMenuOpen(false);
-    };
-
-    if (menuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-      window.addEventListener("scroll", handleScroll);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-      window.removeEventListener("scroll", handleScroll);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [menuOpen]);
-
-  // Handle navbar visibility on scroll
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
   const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const menuRef = useRef(null);
 
   useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 900);
+      setMenuOpen(false);
+      setDropdownOpen(false);
+    };
+
     const handleScroll = () => {
       if (window.scrollY > lastScrollY) {
+        // Scroll down - hide navbar
         setShowNavbar(false);
       } else {
+        // Scroll up - show navbar
         setShowNavbar(true);
       }
       setLastScrollY(window.scrollY);
-    };
-
-    const handleResize = () => {
-      if (window.innerWidth > 900) {
+      
+      // Close menu and dropdown on scroll for mobile view
+      if (isMobile) {
         setMenuOpen(false);
-        document.body.style.overflow = "auto";
+        setDropdownOpen(false);
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpen(false);
+        setDropdownOpen(false);
+      }
+    };
+
     window.addEventListener("resize", handleResize);
+    window.addEventListener("scroll", handleScroll);
+    document.addEventListener("click", handleClickOutside);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("click", handleClickOutside);
     };
-  }, [lastScrollY, menuOpen]);
+  }, [isMobile, lastScrollY]);
+
+  const toggleDropdown = () => {
+    if (isMobile) {
+      setDropdownOpen(!dropdownOpen);
+    }
+  };
+
+  const handleMouseEnter = () => {
+    if (!isMobile) {
+      setDropdownOpen(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (!isMobile) {
+      setDropdownOpen(false);
+    }
+  };
 
   return (
-    <nav className={`navbar navbar-expand-lg navbar-light bg-light fixed-top ${showNavbar ? '' : 'd-none'}`} ref={menuRef}>
+    <nav
+      className={`navbar navbar-expand-lg navbar-light bg-light fixed-top ${showNavbar ? "navbar-visible" : "navbar-hidden"}`}
+      ref={menuRef}
+    >
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           <img src={getImageUrl("nav/company_logo.png")} alt="Logo" />
@@ -98,44 +93,41 @@ const Navbar = () => {
         <div className={`collapse navbar-collapse ${menuOpen ? "show" : ""}`}>
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <Link className="nav-link" to="/#about" smooth={true} offset={-70} duration={800} onClick={() => setMenuOpen(false)}>
+              <Link className="nav-link" to="/#about" onClick={() => setMenuOpen(false)}>
                 About
               </Link>
             </li>
-            <li to="/#service" className="nav-item dropdown"
-              onMouseEnter={() => setDropdownOpen(true)}
-              onMouseLeave={() => setDropdownOpen(false)}
+            <li
+              className="nav-item dropdown"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              onClick={toggleDropdown}
             >
-              <Link className="nav-link dropdown-toggle" to="/#service" smooth={true} offset={-110} duration={800} 
-                onClick={() => setMenuOpen(false)}
-                role="button"
-                aria-haspopup="true"
-                aria-expanded={dropdownOpen}
-              >
+              <Link className="nav-link dropdown-toggle" to="/#service" role="button">
                 Services
               </Link>
               <div className={`dropdown-menu ${dropdownOpen ? "show" : ""}`}>
-                <Link className="dropdown-item" to="/services/accounting-and-bookkeeping" smooth={true} offset={-70} duration={800}  onClick={() => setMenuOpen(false)}>Accounting & Bookkeeping</Link>
-                <Link className="dropdown-item" to="/services/vat-corporate-tax-compliance" smooth={true} offset={-70} duration={800} onClick={() => setMenuOpen(false)}>VAT & Corporate Tax Compliance & Consultancy</Link>
-                <Link className="dropdown-item" to="/services/company-formation-liquidation" smooth={true} offset={-70} duration={800} onClick={() => setMenuOpen(false)}>Company Formation & Liquidation</Link>
-                <Link className="dropdown-item" to="/services/nri-taxation" smooth={true} offset={-70} duration={800} onClick={() => setMenuOpen(false)}>NRI Taxation</Link>
-                <Link className="dropdown-item" to="/services/internal-audit" smooth={true} offset={-70} duration={800} onClick={() => setMenuOpen(false)}>Internal Audit</Link>
-                <Link className="dropdown-item" to="/services/project-reports" smooth={true} offset={-70} duration={800} onClick={() => setMenuOpen(false)}>Project Reports</Link>
-                <Link className="dropdown-item" to="/services/business-planning" smooth={true} offset={-70} duration={800} onClick={() => setMenuOpen(false)}>Business Planning</Link>
+                <Link className="dropdown-item" to="/services/accounting-and-bookkeeping" target="_blank" onClick={() => setMenuOpen(false)}>Accounting & Bookkeeping</Link>
+                <Link className="dropdown-item" to="/services/vat-corporate-tax-compliance" target="_blank" onClick={() => setMenuOpen(false)}>VAT & Corporate Tax Compliance & Consultancy</Link>
+                <Link className="dropdown-item" to="/services/company-formation-liquidation" target="_blank" onClick={() => setMenuOpen(false)}>Company Formation & Liquidation</Link>
+                <Link className="dropdown-item" to="/services/nri-taxation" target="_blank" onClick={() => setMenuOpen(false)}>NRI Taxation</Link>
+                <Link className="dropdown-item" to="/services/internal-audit" target="_blank" onClick={() => setMenuOpen(false)}>Internal Audit</Link>
+                <Link className="dropdown-item" to="/services/project-reports" target="_blank" onClick={() => setMenuOpen(false)}>Project Reports</Link>
+                <Link className="dropdown-item" to="/services/business-planning" target="_blank" onClick={() => setMenuOpen(false)}>Business Planning</Link>
               </div>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/#articles" smooth={true} offset={-110} duration={800} onClick={() => setMenuOpen(false)}>
+              <Link className="nav-link" to="/#articles" onClick={() => setMenuOpen(false)}>
                 Articles
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/#careerform" smooth={true} offset={-110} duration={800} onClick={() => setMenuOpen(false)}>
-                Careers
+              <Link className="nav-link" to="/#careerform" onClick={() => setMenuOpen(false)}>
+                Reach out
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/#contact-us" smooth={true} offset={-110} duration={800} onClick={() => setMenuOpen(false)}>
+              <Link className="nav-link" to="/#contact-us" onClick={() => setMenuOpen(false)}>
                 Contact
               </Link>
             </li>

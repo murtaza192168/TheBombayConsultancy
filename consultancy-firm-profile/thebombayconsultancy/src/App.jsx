@@ -1,4 +1,4 @@
-import { useEffect } from 'react'; 
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -41,43 +41,41 @@ function App() {
   //   const preventDrag = (event) => {
   //     event.preventDefault();
   //   };
-  
+
   //   document.addEventListener('mousedown', preventDrag);
-  
+
   //   return () => {
   //     document.removeEventListener('mousedown', preventDrag);
   //   };
   // }, []);
-  
+
 
   return (
     <div className={styles.App}>
-  
+
 
       <Router>
-      <ScrollToSection />
-      <Navbar />
-      <Hero />
-      <Service/>
-      <Routes>
+        <ScrollToSection />
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<>
+            <Hero /><Service /><About />
+        <CareerForm />
+        <Footer /></>} />
+          <Route path="/services/accounting-and-bookkeeping" element={<AccountingAndBookkeeping />} />
+          <Route path="/services/vat-corporate-tax-compliance" element={<VATCorporateTaxCompliance />} />
+          <Route path="/services/company-formation-liquidation" element={<CompanyFormationLiquidation />} />
+          <Route path="/services/nri-taxation" element={<NRITaxation />} />
+          <Route path="/services/internal-audit" element={<InternalAudit />} />
+          <Route path="/services/project-reports" element={<ProjectReports />} />
+          <Route path="/services/business-planning" element={<BusinessPlanning />} />
+        </Routes>
         
-        <Route path="/services/accounting-and-bookkeeping" element={<AccountingAndBookkeeping />} />
-        <Route path="/services/vat-corporate-tax-compliance" element={<VATCorporateTaxCompliance />} />
-        <Route path="/services/company-formation-liquidation" element={<CompanyFormationLiquidation />} />
-        <Route path="/services/nri-taxation" element={<NRITaxation />} />
-        <Route path="/services/internal-audit" element={<InternalAudit />} />
-        <Route path="/services/project-reports" element={<ProjectReports />} />
-        <Route path="/services/business-planning" element={<BusinessPlanning />} />
-        
-      </Routes>
-      <About/>
-      <CareerForm/>
-      <Footer/>
       </Router>
     </div>
 
-   
-    
+
+
   )
 }
 

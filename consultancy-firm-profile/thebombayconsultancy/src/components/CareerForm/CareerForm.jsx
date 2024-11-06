@@ -18,6 +18,7 @@ const CareerForm = () => {
     e.preventDefault();
 
     try {
+      // const response = await fetch('http://localhost:3000/api/careers',{
       const response = await fetch('https://thebombayconsultancy.onrender.com/api/careers', {
         method: 'POST',
         headers: {
@@ -29,12 +30,12 @@ const CareerForm = () => {
       const result = await response.json();
       if (response.ok) {
         setShowModal(true);
-        setFormData({ name: '', email: '', coverLetter: '' });
+        setFormData({ name: '', email: '', query: '' });
       } else {
         console.error('Submission failed!');
       }
     } catch (error) {
-      console.error('Error submitting application:', error);
+      console.error('Error submitting enquiry:', error);
     }
   };
 
@@ -43,7 +44,7 @@ const CareerForm = () => {
   return (
     <section id="careerform" className="py-5 bg-light d-flex flex-column align-items-center">
       <div className="container p-4 bg-white rounded shadow-sm" style={{ maxWidth: '500px' }}>
-        <h1 className="text-center mb-4">Join Our Team</h1>
+        <h1 className="text-center mb-4">Reach out to us</h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="name" className="form-label fw-semibold">Name</label>
@@ -51,7 +52,7 @@ const CareerForm = () => {
               type="text"
               id="name"
               name="name"
-              placeholder="Enter full name"
+              placeholder="Enter name"
               value={formData.name}
               onChange={handleChange}
               required
@@ -72,19 +73,19 @@ const CareerForm = () => {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="coverLetter" className="form-label fw-semibold">Cover Letter</label>
+            <label htmlFor="query" className="form-label fw-semibold">Your Query</label>
             <textarea
-              id="coverLetter"
-              name="coverLetter"
-              placeholder="Why should we hire you?"
-              value={formData.coverLetter}
+              id="query"
+              name="query"
+              placeholder="How can we help you?"
+              value={formData.query}
               onChange={handleChange}
               required
               className="form-control"
               rows="5"
             ></textarea>
           </div>
-          <button type="submit" className="btn btn-primary w-100 fw-bold">Submit Application</button>
+          <button type="submit" className="btn btn-primary w-100 fw-bold">Submit</button>
         </form>
       </div>
 
@@ -101,7 +102,7 @@ const CareerForm = () => {
                 <svg className="bi bi-check-circle" width="50" height="50" fill="green" viewBox="0 0 16 16">
                   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.97 10.97l5.46-5.47-1.415-1.415L6.97 8.586 5.48 7.096 4.065 8.51l2.905 2.906z"/>
                 </svg>
-                <p className="mt-3">Application submitted successfully!</p>
+                <p className="mt-3">Query submitted successfully!</p>
               </div>
             </div>
           </div>

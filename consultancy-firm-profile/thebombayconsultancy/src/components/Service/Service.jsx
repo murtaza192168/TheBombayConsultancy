@@ -10,7 +10,7 @@ const Service = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-       // const response = await fetch('http://localhost:3000/api/services');
+        //const response = await fetch('http://localhost:3000/api/services');
          const response = await fetch('https://thebombayconsultancy.onrender.com/api/services');
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
@@ -23,7 +23,7 @@ const Service = () => {
   }, []);
 
   return (
-    <section id='service' className="container py-5">
+    <section  className="container py-5">
       <h2 className="text-center mb-4">Services We Offer</h2>
       <div className="row justify-content-center">
         {services.map((service, id) => (
@@ -36,7 +36,7 @@ const Service = () => {
   );
 };
 
-const ServiceCard = ({ service: { imageSrc, title, description, route } }) => {
+const ServiceCard = ({ service: { imageSrc, title, description, readMore } }) => {
   const cardRef = useRef(null);
 
   useEffect(() => {
@@ -73,7 +73,7 @@ const ServiceCard = ({ service: { imageSrc, title, description, route } }) => {
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
         <p className="card-text">{description}</p>
-        <Link to={route} className="btn btn-primary"> {/* Navigate to service details */}
+        <Link to={readMore} target="_blank" className="btn btn-primary"> {/* Navigate to service details */}
           Read more
         </Link>
       </div>

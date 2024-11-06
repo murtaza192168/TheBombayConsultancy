@@ -44,14 +44,12 @@ const Footer = () => {
               <a href="https://www.linkedin.com/in/cajmdoctor/" target="_blank" rel="noopener noreferrer" className="text-light ">
                 <i className="bi bi-linkedin" style={{ fontSize: '1.5rem' }}></i>
               </a>
-              <a href="https://www.instagram.com/thebombayconsultancy/" target="_blank" rel="noopener noreferrer" className="text-light ">
-                <i className="bi bi-instagram" style={{ fontSize: '1.5rem' }}></i>
-              </a>
+             
             </div>
           </div>
         </div>
         <div className="text-center border-top border-secondary pt-4 mt-4">
-          <p className="mb-0">&copy; 2024 theBombayConsultancy. All rights reserved.</p>
+          <p className="mb-0">&copy; 2024 FJ Consultancy. All rights reserved.</p>
         </div>
       </div>
     </footer>
