@@ -62,13 +62,13 @@ function App() {
             <Hero /><Service /><About />
         <CareerForm />
         <Footer /></>} />
-          <Route path="/services/accounting-and-bookkeeping" element={<AccountingAndBookkeeping />} />
-          <Route path="/services/vat-corporate-tax-compliance" element={<VATCorporateTaxCompliance />} />
-          <Route path="/services/company-formation-liquidation" element={<CompanyFormationLiquidation />} />
-          <Route path="/services/nri-taxation" element={<NRITaxation />} />
-          <Route path="/services/internal-audit" element={<InternalAudit />} />
-          <Route path="/services/project-reports" element={<ProjectReports />} />
-          <Route path="/services/business-planning" element={<BusinessPlanning />} />
+          <Route path="https://the-bombay-consultancy.vercel.app/services/accounting-and-bookkeeping" element={<AccountingAndBookkeeping />} />
+          <Route path="https://the-bombay-consultancy.vercel.app/services/vat-corporate-tax-compliance" element={<VATCorporateTaxCompliance />} />
+          <Route path="https://the-bombay-consultancy.vercel.app/services/company-formation-liquidation" element={<CompanyFormationLiquidation />} />
+          <Route path="https://the-bombay-consultancy.vercel.app/services/nri-taxation" element={<NRITaxation />} />
+          <Route path="https://the-bombay-consultancy.vercel.app/services/internal-audit" element={<InternalAudit />} />
+          <Route path="https://the-bombay-consultancy.vercel.app/services/project-reports" element={<ProjectReports />} />
+          <Route path="https://the-bombay-consultancy.vercel.app/services/business-planning" element={<BusinessPlanning />} />
         </Routes>
         
       </Router>
