@@ -5,7 +5,7 @@ import './Hero.css'; // Custom CSS for non-Bootstrap-specific styles
 
 export const Hero = () => {
   return (
-    <section id='contact-us' className="container-fluid d-flex align-items-center justify-content-between hero-section">
+    <section  className="container-fluid d-flex align-items-center justify-content-between hero-section">
       <div className="content">
         <h1 className="display-4 font-weight-bold text-dark mb-3">Your Partner in Accounting Compliance and Beyond</h1>
         <p className="lead text-secondary mb-4">

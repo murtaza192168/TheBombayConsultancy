@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { getImageUrl } from '../../utils';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap is imported
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './About.css';
 
 const About = () => {
@@ -31,12 +31,11 @@ const About = () => {
     return (
         <section
             loading='lazy'
-            id='about'
             ref={sectionRef}
             className={`py-5 bg-light ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-50'} transition-opacity transition-transform duration-800`}
         >
             <div className="container">
-                <h1 className="text-center mb-4 display-4 text-dark">Who We Are?</h1>
+                <h1 className="text-center mb-4 display-4 text-dark">Welcome to F J Accounting & Consultancy LLC</h1>
                 <div className="row justify-content-center mb-4">
                     <div className="col-12">
                         <img
@@ -50,39 +49,35 @@ const About = () => {
                 <div className="row mb-4">
                     <div className="col-12">
                         <p className="lead text-justify text-muted">
-                            At <span className="text-secondary font-weight-bold">TheBombayConsultancy</span>, we are a one-stop firm offering accounting, auditing, and multi-disciplinary advisory services in finance and taxation. Our journey began in 2018 with the establishment of <span className="text-secondary font-weight-bold">J M Doctor & Associates</span> in Mumbai, India, providing top-tier accounting and financial services. Building on that success, we expanded our reach to the UAE in 2024, with a new office in Dubai.
+                            At <span className="text-secondary font-weight-bold">F J Accounting & Consultancy LLC</span>, we are committed to delivering comprehensive accounting, tax, and advisory services tailored to the diverse needs of businesses across the UAE. Established by two highly accomplished Chartered Accountants, our firm is built on a foundation of expertise, trust, and an unwavering commitment to excellence.
                         </p>
                     </div>
                     <div className="col-12">
+                        <h3 className="display-5 text-secondary border-left border-secondary pl-3 mb-3">Our Founders</h3>
                         <p className="lead text-justify text-muted">
-                            Originally headquartered in Mumbai, we now take immense pride in serving clients across the globe. By expertly managing their accounting, taxation, and business advisory needs, we simplify the lives of our clients and help them focus on growing their businesses.
+                            With over 30 years of experience in the UAE, <span className="text-primary font-weight-bold">CA Fakhruddin Sethjiwala</span>, a Chartered Accountant and US CPA, brings unmatched insights into the region's financial landscape, supported by his extensive experience across multiple industries. Complementing him, <span className="text-primary font-weight-bold">Juzer Doctor</span>, a Chartered Accountant with a track record of success in corporate tax, bookkeeping, and financial compliance, ensures a hands-on, client-focused approach. Together, they have established a firm that prioritizes client success and upholds the highest standards of integrity and professionalism.
                         </p>
                     </div>
                     <div className="col-12">
-                        <h3 className="display-5 text-secondary border-left border-secondary pl-3 mb-3">Our Strengths</h3>
-                        <p className="lead text-justify text-muted">
-                            Our core strength lies in our dynamic and motivated leadership, driven by a passion for excellence in the financial and legal sectors. Our team of highly skilled professionals is multi-disciplinary and cross-functional, offering clients a range of specialized services:
-                        </p>
+                        <h3 className="display-5 text-secondary border-left border-secondary pl-3 mb-3">Our Services</h3>
                         <ul className="list-unstyled">
                             {[
-                                'Company Formation in the UAE',
-                                'Corporate Tax Advisory',
-                                'VAT Consultancy',
-                                'Pricing & Profitability',
-                                'Budgeting & Cost Management',
-                                'Internal Controls',
-                                'Accounts Writing (Bookkeeping)',
-                                'Finalization of Books of Accounts'
-                            ].map((item, index) => (
+                                { title: 'Accounting & Bookkeeping', description: 'Accurate record-keeping for informed decision-making.' },
+                                { title: 'Corporate Tax & VAT Compliance', description: 'Full compliance with UAE tax regulations while optimizing your tax position.' },
+                                { title: 'Audit & Assurance', description: 'Independent audits to build stakeholder confidence in your financial reports.' },
+                                { title: 'Business Setup & Advisory', description: 'Guidance on company formation and business strategy for mainland, free zone, or offshore entities.' },
+                                { title: 'Financial Reporting & Analysis', description: 'Detailed insights to support sustainable growth and effective risk management.' }
+                            ].map((service, index) => (
                                 <li key={index} className="bg-white border rounded p-3 mb-2 shadow-sm transition-transform duration-300 hover:bg-light hover:translate-y-1">
-                                    {item}
+                                    <span className="text-dark font-weight-bold">{service.title}:</span> {service.description}
                                 </li>
                             ))}
                         </ul>
                     </div>
                     <div className="col-12">
+                        <h3 className="display-5 text-secondary border-left border-secondary pl-3 mb-3">Why Choose Us?</h3>
                         <p className="lead text-justify text-muted">
-                            With expertise in both local and international markets, we provide tailored solutions designed to meet the unique needs of each client. Whether you’re a startup seeking to establish operations in the UAE or an established business looking to streamline your financial processes, <span className="text-secondary font-weight-bold">The Bombay Consultancy</span> is here to provide expert guidance and support.
+                            With decades of combined experience and a deep understanding of the UAE’s regulatory environment, <span className="text-secondary font-weight-bold">F J Accounting & Consultancy LLC</span> provides practical, precise, and results-driven solutions. Our personalized approach ensures each client receives the dedicated attention needed to navigate today’s complex business landscape, helping them achieve their goals with confidence and clarity.
                         </p>
                     </div>
                 </div>

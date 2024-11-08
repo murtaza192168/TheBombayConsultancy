@@ -92,45 +92,50 @@ const Navbar = () => {
 
         <div className={`collapse navbar-collapse ${menuOpen ? "show" : ""}`}>
           <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
-              <Link className="nav-link" to="/#about" onClick={() => setMenuOpen(false)}>
-                About
+
+          <li className="nav-item">
+              <Link className="nav-link" to="/" onClick={() => setMenuOpen(false)}>
+                Home
               </Link>
             </li>
+
             <li
               className="nav-item dropdown"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
               onClick={toggleDropdown}
             >
-              <Link className="nav-link dropdown-toggle" to="/#service" role="button">
+              <Link className="nav-link dropdown-toggle" to="/services" role="button">
                 Services
               </Link>
               <div className={`dropdown-menu ${dropdownOpen ? "show" : ""}`}>
-                <Link className="dropdown-item" to="/services/accounting-and-bookkeeping" target="_blank" onClick={() => setMenuOpen(false)}>Accounting & Bookkeeping</Link>
-                <Link className="dropdown-item" to="/services/vat-corporate-tax-compliance" target="_blank" onClick={() => setMenuOpen(false)}>VAT & Corporate Tax Compliance & Consultancy</Link>
-                <Link className="dropdown-item" to="/services/company-formation-liquidation" target="_blank" onClick={() => setMenuOpen(false)}>Company Formation & Liquidation</Link>
-                <Link className="dropdown-item" to="/services/nri-taxation" target="_blank" onClick={() => setMenuOpen(false)}>NRI Taxation</Link>
-                <Link className="dropdown-item" to="/services/internal-audit" target="_blank" onClick={() => setMenuOpen(false)}>Internal Audit</Link>
-                <Link className="dropdown-item" to="/services/project-reports" target="_blank" onClick={() => setMenuOpen(false)}>Project Reports</Link>
-                <Link className="dropdown-item" to="/services/business-planning" target="_blank" onClick={() => setMenuOpen(false)}>Business Planning</Link>
+                <Link className="dropdown-item" to="/services/accounting-and-bookkeeping"  onClick={() => setMenuOpen(false)}>Accounting & Bookkeeping</Link>
+                <Link className="dropdown-item" to="/services/vat-corporate-tax-compliance"  onClick={() => setMenuOpen(false)}>VAT & Corporate Tax Compliance & Consultancy</Link>
+                <Link className="dropdown-item" to="/services/company-formation-liquidation"  onClick={() => setMenuOpen(false)}>Company Formation & Liquidation</Link>
+                <Link className="dropdown-item" to="/services/nri-taxation"  onClick={() => setMenuOpen(false)}>NRI Taxation</Link>
+                <Link className="dropdown-item" to="/services/internal-audit"  onClick={() => setMenuOpen(false)}>Internal Audit</Link>
+                <Link className="dropdown-item" to="/services/project-reports"  onClick={() => setMenuOpen(false)}>Project Reports</Link>
+                <Link className="dropdown-item" to="/services/business-planning"  onClick={() => setMenuOpen(false)}>Business Planning</Link>
               </div>
             </li>
+
             <li className="nav-item">
-              <Link className="nav-link" to="/#articles" onClick={() => setMenuOpen(false)}>
+              <Link className="nav-link" to="/about" onClick={() => setMenuOpen(false)}>
+                About
+              </Link>
+            </li>
+            
+            <li className="nav-item">
+              <Link className="nav-link" to="/articles" onClick={() => setMenuOpen(false)}>
                 Articles
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/#careerform" onClick={() => setMenuOpen(false)}>
+              <Link className="nav-link" to="/contactform" onClick={() => setMenuOpen(false)}>
                 Reach out
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/#contact-us" onClick={() => setMenuOpen(false)}>
-                Contact
-              </Link>
-            </li>
+            
           </ul>
         </div>
       </div>

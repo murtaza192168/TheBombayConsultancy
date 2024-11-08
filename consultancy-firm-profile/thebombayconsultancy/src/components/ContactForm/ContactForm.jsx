@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./CareerForm.css";
+import "./ContactForm.css";
 
-const CareerForm = () => {
+const ContactForm = () => {
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -42,7 +42,7 @@ const CareerForm = () => {
   const closeModal = () => setShowModal(false);
 
   return (
-    <section id="careerform" className="py-5 bg-light d-flex flex-column align-items-center">
+    <section  className="py-5 bg-light d-flex flex-column align-items-center">
       <div className="container p-4 bg-white rounded shadow-sm" style={{ maxWidth: '500px' }}>
         <h1 className="text-center mb-4">Reach out to us</h1>
         <form onSubmit={handleSubmit}>
@@ -112,4 +112,4 @@ const CareerForm = () => {
   );
 };
 
-export default CareerForm;
+export default ContactForm;

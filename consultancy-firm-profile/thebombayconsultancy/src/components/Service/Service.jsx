@@ -73,7 +73,7 @@ const ServiceCard = ({ service: { imageSrc, title, description, readMore } }) =>
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
         <p className="card-text">{description}</p>
-        <Link to={readMore} target="_blank" className="btn btn-primary"> {/* Navigate to service details */}
+        <Link to={readMore}  className="btn btn-primary"> {/* Navigate to service details */}
           Read more
         </Link>
       </div>

@@ -25,10 +25,11 @@ const Footer = () => {
           <div className="col-md-4 mb-4 mb-md-0">
             <h5 className="fw-bold mb-3">Navigation</h5>
             <div className="d-flex flex-column align-items-center align-items-md-start">
-              <Link to="about" className="text-light text-decoration-none mb-2">About Us</Link>
-              <Link to="service" className="text-light text-decoration-none mb-2">Services</Link>
-              <Link to="contact-us" className="text-light text-decoration-none mb-2">Contact</Link>
-              <Link to="careerform" className="text-light text-decoration-none">Careers</Link>
+              
+              <a href="/about" className="text-light text-decoration-none mb-2">About Us</a>
+              <a href="/services" className="text-light text-decoration-none mb-2">Services</a>
+              <a href="/articles" className="text-light text-decoration-none mb-2">Articles</a>
+              <a href="/careerform" className="text-light text-decoration-none">Reach out</a>
             </div>
           </div>
           {/* Social Media Section */}
@@ -49,7 +50,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="text-center border-top border-secondary pt-4 mt-4">
-          <p className="mb-0">&copy; 2024 FJ Consultancy. All rights reserved.</p>
+          <p className="mb-0">&copy; 2024  FJ Accounting & Consultancy LLC. All rights reserved.</p>
         </div>
       </div>
     </footer>

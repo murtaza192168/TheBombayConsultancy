@@ -16,8 +16,9 @@ import InternalAudit from './pages/InternalAudit';
 import ProjectReports from './pages/ProjectReports';
 import BusinessPlanning from './pages/BusinessPlanning';
 
-import CareerForm from './components/CareerForm/CareerForm';
+import ContactForm from './components/ContactForm/ContactForm';
 import About from './components/About/About';
+import Articles from './components/Articles/Articles';
 import Footer from './components/Footer/Footer';
 
 function ScrollToSection() {
@@ -55,13 +56,21 @@ function App() {
 
 
       <Router>
-        <ScrollToSection />
+       
         <Navbar />
         <Routes>
-          <Route path="/" element={<>
-            <Hero /><Service /><About />
-        <CareerForm />
-        <Footer /></>} />
+          {/* Home route */}
+          <Route path="/" element={<Hero />} />
+
+
+          {/* separate routes for each component */}
+          <Route path='/services' element={<Service/>} />
+          <Route path='/about' element={<About />} />
+          <Route path='/contactform' element={<ContactForm/>} />
+          <Route path='/articles' element={<Articles/>}/>
+
+
+            {/* Service Routes */}
           <Route path="/services/accounting-and-bookkeeping" element={<AccountingAndBookkeeping />} />
           <Route path="/services/vat-corporate-tax-compliance" element={<VATCorporateTaxCompliance />} />
           <Route path="/services/company-formation-liquidation" element={<CompanyFormationLiquidation />} />
@@ -70,7 +79,7 @@ function App() {
           <Route path="/services/project-reports" element={<ProjectReports />} />
           <Route path="/services/business-planning" element={<BusinessPlanning />} />
         </Routes>
-        
+        <Footer />
       </Router>
     </div>
 
