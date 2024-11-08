@@ -6,6 +6,8 @@ html{
   scroll-behavior: smooth; /* Smooth scroll for anchor links */
 }
 * {
+  touch-action: pan-y; /* Allows vertical scrolling only */
+  -webkit-user-drag: none; /* Prevents images from being dragged */
   box-sizing: border-box;
   margin: 0;
   padding: 0;
