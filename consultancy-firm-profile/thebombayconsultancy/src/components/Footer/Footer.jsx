@@ -29,7 +29,7 @@ const Footer = () => {
               <a href="/about" className="text-light text-decoration-none mb-2">About Us</a>
               <a href="/services" className="text-light text-decoration-none mb-2">Services</a>
               <a href="/articles" className="text-light text-decoration-none mb-2">Articles</a>
-              <a href="/careerform" className="text-light text-decoration-none">Reach out</a>
+              <a href="/contactform" className="text-light text-decoration-none">Reach out</a>
             </div>
           </div>
           {/* Social Media Section */}
